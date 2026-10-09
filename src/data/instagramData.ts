@@ -1,12 +1,13 @@
 import {
   dennisPrivateJetCabinFilming,
+  dennisPrivateJetExterior,
   dennisSunriseBalconySkyline,
   dennisYellowFerrariLifestyle,
   instagramBentleyInspiredMansion,
   instagramModernFarmhouseWalkthrough,
-  portfolioAviationPrivateLounge,
   portraitDennisDearArtists,
 } from '../assets/images';
+import chinaHighlightCover from '../assets/images/dennis_sunrise_balcony_skyline_1791541533722.jpg';
 
 export interface InstagramHighlight {
   id: string;
@@ -34,8 +35,8 @@ export const INSTAGRAM_HIGHLIGHTS: InstagramHighlight[] = [
   { id: 'h2', title: 'Properties', coverImage: instagramBentleyInspiredMansion },
   { id: 'h3', title: 'LifeStyle', coverImage: dennisYellowFerrariLifestyle },
   { id: 'h4', title: 'BTS', coverImage: dennisPrivateJetCabinFilming },
-  { id: 'h5', title: 'LESUS', coverImage: portfolioAviationPrivateLounge },
-  { id: 'h6', title: 'csChina', coverImage: dennisSunriseBalconySkyline },
+  { id: 'h5', title: 'LESUS', coverImage: dennisPrivateJetExterior },
+  { id: 'h6', title: 'csChina', coverImage: chinaHighlightCover },
 ];
 
 export const INSTAGRAM_POSTS: InstagramPost[] = [
