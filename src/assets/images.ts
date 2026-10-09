@@ -28,6 +28,7 @@ export {
   portfolioAviationPrivateLounge,
   portfolioKarenSolariumInterior,
   portraitDennisDearArtists,
+  portraitDennisDearArtists as dennisDeskPhoto,
   siayaParkAmbience,
   siayaParkBedroom,
   siayaParkDining,

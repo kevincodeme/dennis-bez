@@ -111,6 +111,15 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const handleNavClick = (href: string) => {
+    closeMenu();
+    if (location.pathname === href) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
+
   const isActive = (path: string) => {
     if (path === '/' && location.pathname === '/') return true;
     if (path !== '/' && location.pathname.startsWith(path)) return true;
@@ -184,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <div className="flex items-center gap-3 sm:gap-4">
               <Link
                 to="/conversation"
-                onClick={closeMenu}
+                onClick={() => handleNavClick('/conversation')}
                 className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-sans font-medium tracking-[0.16em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors whitespace-nowrap cursor-pointer shadow-md"
               >
                 <span>A Conversation</span>
@@ -225,7 +234,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
               <Link
                 to="/conversation"
-                onClick={closeMenu}
+                onClick={() => handleNavClick('/conversation')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-sans font-medium tracking-[0.2em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-all whitespace-nowrap shrink-0 shadow-xl cursor-pointer"
               >
                 <span>A Conversation</span>
@@ -301,7 +310,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   <Link
                     key={item.num}
                     to={item.href}
-                    onClick={closeMenu}
+                    onClick={() => handleNavClick(item.href)}
                     className="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-b border-white/5 pb-6 transition-all duration-300 cursor-pointer hover:border-white/20"
                   >
                     <div className="flex items-baseline gap-4 sm:gap-8">
