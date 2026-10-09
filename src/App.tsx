@@ -17,6 +17,7 @@ import { MaterialityPage } from './pages/MaterialityPage';
 import { CinematographyPage } from './pages/CinematographyPage';
 import { ArchitectPage } from './pages/ArchitectPage';
 import { FieldDiaryPage } from './pages/FieldDiaryPage';
+import { ConversationPage } from './pages/ConversationPage';
 import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
@@ -39,7 +40,8 @@ export default function App() {
             <Route path="/cinematography" element={<Navigate to="/film" replace />} />
             <Route path="/architect" element={<ArchitectPage />} />
             <Route path="/field-diary" element={<FieldDiaryPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/conversation" element={<ConversationPage />} />
+            <Route path="/contact" element={<ConversationPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

@@ -54,9 +54,9 @@ const MENU_ITEMS: MenuItem[] = [
   },
   {
     num: '07',
-    label: 'Initiate Private Dialogue',
-    subtitle: 'Direct client commission & private consultation',
-    href: '/contact',
+    label: 'A Conversation',
+    subtitle: 'Direct dialogue with Dennis Bezalel & private commission',
+    href: '/conversation',
     isAction: true,
   },
 ];
@@ -129,10 +129,10 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </Link>
 
           {/* Right Action Zone: Conversation CTA + Menu Trigger */}
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
             <Link
-              to="/contact"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-sans font-medium tracking-[0.18em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors whitespace-nowrap shrink-0 shadow-lg cursor-pointer"
+              to="/conversation"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs font-sans font-medium tracking-[0.14em] sm:tracking-[0.18em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors whitespace-nowrap shrink-0 shadow-lg cursor-pointer"
             >
               <span>A Conversation</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

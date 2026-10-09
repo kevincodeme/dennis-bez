@@ -52,7 +52,7 @@ export const FieldDiaryPage: React.FC = () => {
       {/* Bottom CTA */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 mt-20 text-center">
         <Link
-          to="/contact"
+          to="/conversation"
           className="inline-flex items-center gap-3 px-8 py-4 bg-[#c5a880] text-black text-xs uppercase tracking-[0.22em] font-medium hover:bg-[#dfc7a5] transition-colors shadow-xl"
         >
           <span>Commission a Project Documented by Dennis</span>

@@ -29,10 +29,40 @@ export const InquiryConcierge: React.FC<InquiryConciergeProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
+    const whatsappMessage = [
+      `*🏛️ INQUIRY FOR DENNIS OCHIENG ATELIER*`,
+      ``,
+      `*Client:* ${formData.name}`,
+      `*Email:* ${formData.email}`,
+      `*Phone:* ${formData.phone}`,
+      `*Typology:* ${formData.typology}`,
+      `*Location:* ${formData.location}`,
+      `*Scope:* ${formData.scope}`,
+      `*Timeline:* ${formData.timeline}`,
+      ``,
+      `*Message:*`,
+      formData.message || 'I would like to inquire about commissioning a private residence.',
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/254715998587?text=${encodeURIComponent(whatsappMessage)}`;
+
+    try {
+      const link = document.createElement('a');
+      link.href = whatsappUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch {
+      window.location.href = whatsappUrl;
+    }
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 800);
+    }, 400);
   };
 
   const content = (

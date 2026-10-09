@@ -76,7 +76,7 @@ export const AtelierPage: React.FC = () => {
               View Residences
             </Link>
             <Link
-              to="/contact"
+              to="/conversation"
               className="px-8 py-3.5 bg-[#c5a880] text-black text-xs uppercase tracking-widest font-medium hover:bg-[#dfc7a5] transition-colors shadow-xl"
             >
               Initiate Dialogue

@@ -65,7 +65,7 @@ export const CinematographyPage: React.FC = () => {
           </div>
 
           <Link
-            to="/contact"
+            to="/conversation"
             className="px-8 py-3.5 bg-[#c5a880] text-black text-xs uppercase tracking-widest font-medium hover:bg-[#dfc7a5] transition-colors whitespace-nowrap shadow-xl"
           >
             Inquire for Video Production

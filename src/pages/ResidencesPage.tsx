@@ -222,7 +222,7 @@ export const ResidencesPage: React.FC = () => {
           </div>
 
           <Link
-            to="/contact"
+            to="/conversation"
             className="px-8 py-4 bg-[#c5a880] text-black text-xs uppercase tracking-[0.22em] font-medium hover:bg-[#dfc7a5] transition-colors whitespace-nowrap shadow-xl"
           >
             Initiate Atelier Dialogue

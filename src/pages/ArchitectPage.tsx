@@ -36,7 +36,7 @@ export const ArchitectPage: React.FC = () => {
       </div>
 
       {/* Main Monograph Component */}
-      <Monograph onOpenCommissionModal={() => navigate('/contact')} />
+      <Monograph onOpenCommissionModal={() => navigate('/conversation')} />
 
       {/* Direct Social Links Strip */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 mt-16">
@@ -64,7 +64,7 @@ export const ArchitectPage: React.FC = () => {
           </div>
 
           <Link
-            to="/contact"
+            to="/conversation"
             className="px-8 py-3.5 bg-[#c5a880] text-black text-xs uppercase tracking-widest font-medium hover:bg-[#dfc7a5] transition-colors shadow-lg"
           >
             Initiate Conversation with Dennis

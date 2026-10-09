@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors font-medium">
+                <Link to="/conversation" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors font-medium">
                   Start a Conversation
                 </Link>
               </li>
@@ -119,8 +119,13 @@ export const Footer: React.FC = () => {
                   <a href="mailto:theageco@gmail.com" className="text-white hover:text-[#c5a880] block transition-colors">
                     theageco@gmail.com
                   </a>
-                  <a href="tel:+254715998587" className="text-[#9e9b94] hover:text-white block transition-colors mt-0.5">
-                    +254 715 99 85 87
+                  <a
+                    href="https://wa.me/254715998587?text=Hello%20Dennis,%20I%20would%20like%20to%20discuss%20a%20private%20architectural%20commission."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#9e9b94] hover:text-[#c5a880] block transition-colors mt-0.5"
+                  >
+                    WhatsApp: +254 715 99 85 87
                   </a>
                 </div>
               </div>

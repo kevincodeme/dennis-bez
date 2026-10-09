@@ -108,7 +108,7 @@ export const ProjectDetailPage: React.FC = () => {
             </h1>
 
             <Link
-              to={`/contact?project=${encodeURIComponent(project.title)}`}
+              to={`/conversation?project=${encodeURIComponent(project.title)}`}
               className="px-6 py-3.5 bg-[#c5a880] text-black text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#dfc7a5] transition-colors whitespace-nowrap self-start lg:self-auto shadow-xl"
             >
               Commission Similar Residence

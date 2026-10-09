@@ -168,7 +168,7 @@ export const HomePage: React.FC = () => {
       </div>
 
       {/* Dennis Bezalel Biographical Monograph */}
-      <Monograph onOpenCommissionModal={() => navigate('/contact')} />
+      <Monograph onOpenCommissionModal={() => navigate('/conversation')} />
 
       {/* Direct Human Dialogue */}
       <HumanConversation />

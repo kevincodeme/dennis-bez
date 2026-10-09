@@ -73,7 +73,7 @@ export const MaterialityPage: React.FC = () => {
         {/* CTA */}
         <div className="text-center pt-16">
           <Link
-            to="/contact"
+            to="/conversation"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#c5a880] text-black text-xs uppercase tracking-[0.22em] font-medium hover:bg-[#dfc7a5] transition-colors shadow-xl"
           >
             <span>Request Sample Palette for Private Commission</span>
