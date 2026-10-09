@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", "Cormorant Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-handwriting: "Homemade Apple", cursive;
+  
+  --color-canvas: #0b0b0d;
+  --color-surface: #141417;
+  --color-surface-elevated: #1c1c21;
+  --color-surface-subtle: #24242b;
+  --color-bronze: #c5a880;
+  --color-bronze-light: #dfc7a5;
+  --color-bronze-dark: #8c7150;
+  --color-stone: #9e9b94;
+  --color-alabaster: #f2efe9;
+}
+
+/* Custom Architectural Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
+
+/* Hairline architectural grid pattern */
+.bg-grid-hairline {
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Subtle image reveal zoom */
+.architectural-img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.group:hover .architectural-img {
+  transform: scale(1.04);
+}

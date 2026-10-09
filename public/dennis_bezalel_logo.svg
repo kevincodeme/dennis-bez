@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" width="100%" height="100%">
+  <!-- Dennis Bezalel Authentic Brand Identity Vector -->
+  <g fill="#ffffff">
+    <!-- Top Ascender & Upper Hook of 'd' -->
+    <path d="M260 90 C260 90, 282 90, 302 70 C312 60, 312 40, 312 20 L260 20 L260 270 C236 270, 220 260, 200 234 C178 202, 178 154, 200 122 C220 90, 244 90, 260 90 Z" />
+    
+    <!-- Vertical Rectangular Column of 'd' -->
+    <path d="M232 174 L282 174 L282 382 L232 382 Z" />
+    
+    <!-- Left Crescent Outer Bowl of 'd' -->
+    <path d="M232 208 C200 208, 164 234, 164 286 C164 338, 200 368, 232 368 L232 336 C216 336, 200 324, 200 286 C200 254, 216 240, 232 240 Z" />
+    
+    <!-- Descending and Sweeping Calligraphic Loop of 'b' -->
+    <path d="M260 294 L260 386 C260 424, 280 456, 318 462 C354 468, 382 446, 382 404 C382 356, 344 336, 306 336 L306 302 C366 302, 420 340, 420 410 C420 474, 360 512, 290 502 C242 492, 216 444, 216 386 L216 294 Z" />
+    
+    <!-- Center Solid Diamond inside Loop of 'b' -->
+    <polygon points="318,378 340,400 318,422 296,400" fill="#c5a880" />
+    
+    <!-- Wordmark: DENNIS • BEZALEL -->
+    <text x="250" y="546" font-family="'Cinzel', 'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="600" letter-spacing="7" text-anchor="middle" fill="#ffffff">
+      DENNIS • BEZALEL
+    </text>
+  </g>
+</svg>
