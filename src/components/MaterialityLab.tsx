@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MATERIALS, MaterialDetail } from '../data/portfolioData';
 import { Sparkles, MapPin, Layers, Check } from 'lucide-react';
+import { materialityMarbleBronzeDetail } from '../assets/images';
 
 export const MaterialityLab: React.FC = () => {
   const [selectedMaterial, setSelectedMaterial] = useState<MaterialDetail>(MATERIALS[0]);
@@ -32,7 +33,7 @@ export const MaterialityLab: React.FC = () => {
           {/* Left Column: Macro Craftsmanship Photography */}
           <div className="lg:col-span-6 relative bg-black border border-white/10 overflow-hidden flex flex-col justify-end min-h-[460px] lg:min-h-full">
             <img
-              src="/src/assets/images/materiality_marble_bronze_detail_1791539402279.jpg"
+              src={materialityMarbleBronzeDetail}
               alt="Craftsmanship detail showing fluted oak, bronze trim and Nero Marquina marble"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-700"

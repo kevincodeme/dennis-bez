@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Project } from '../data/portfolioData';
 import { ArrowUpRight, Compass, Eye, Sparkles, MapPin, Ruler } from 'lucide-react';
+import { architecturalHandSketchTrace } from '../assets/images';
 
 interface MonographWorksProps {
   projects: Project[];
@@ -116,7 +117,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
             {showSketchTrace ? (
               <div className="relative w-full h-full animate-in fade-in duration-500">
                 <img
-                  src="/src/assets/images/architectural_hand_sketch_trace_1791542809736.jpg"
+                  src={architecturalHandSketchTrace}
                   alt="Dennis's hand-drafted concept sketch on yellow tracing paper"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"

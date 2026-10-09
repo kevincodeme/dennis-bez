@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { INSTAGRAM_POSTS, INSTAGRAM_HIGHLIGHTS, InstagramPost } from '../data/instagramData';
 import { Instagram, Heart, MessageCircle, Eye, ExternalLink, X, MapPin, CheckCircle } from 'lucide-react';
+import { portraitDennisDearArtists } from '../assets/images';
 
 export const InstagramFeed: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
@@ -29,7 +30,7 @@ export const InstagramFeed: React.FC = () => {
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-[#c5a880] via-[#dfc7a5] to-[#8c7150]">
                   <div className="w-full h-full rounded-full overflow-hidden bg-black">
                     <img
-                      src="/src/assets/images/portrait_dennis_dear_artists_1791541524326.jpg"
+                      src={portraitDennisDearArtists}
                       alt="Dennis Bezalel"
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover object-center"
@@ -255,7 +256,7 @@ export const InstagramFeed: React.FC = () => {
                 <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src="/src/assets/images/portrait_dennis_dear_artists_1791541524326.jpg"
+                      src={portraitDennisDearArtists}
                       alt="Dennis"
                       className="w-9 h-9 rounded-full object-cover"
                     />

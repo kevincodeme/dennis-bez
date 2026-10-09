@@ -1,3 +1,13 @@
+import {
+  heroDubaiWaterfrontVilla,
+  heroObsidianManorEstate,
+  materialityMarbleBronzeDetail,
+  portfolioAviationPrivateLounge,
+  portfolioKarenSolariumInterior,
+  portfolioSolariumExterior,
+  portfolioTravertinePenthouseTerrace,
+} from '../assets/images';
+
 export interface Project {
   id: string;
   title: string;
@@ -26,11 +36,11 @@ export const PROJECTS: Project[] = [
     location: 'Karen, Nairobi',
     year: '2025',
     area: '16,800 SQ. FT.',
-    heroImage: '/src/assets/images/hero_obsidian_manor_estate_1791539357090.jpg',
+    heroImage: heroObsidianManorEstate,
     galleryImages: [
-      '/src/assets/images/hero_obsidian_manor_estate_1791539357090.jpg',
-      '/src/assets/images/portfolio_karen_solarium_interior_1791539379224.jpg',
-      '/src/assets/images/portfolio_solarium_exterior_1791539443456.jpg',
+      heroObsidianManorEstate,
+      portfolioKarenSolariumInterior,
+      portfolioSolariumExterior,
     ],
     architecturalStatement:
       'Commissioned as a secluded architectural statement in the forested ridges of Karen, The Obsidian Manor integrates monolithic dark charcoal basalt masonry with cantilevered structural steel pavilions. Expansive glass curtain walls dissolve the threshold between manicured landscaped grounds and double-height interior galleries.',
@@ -55,11 +65,11 @@ export const PROJECTS: Project[] = [
     location: 'Palm Jumeirah, Dubai',
     year: '2025',
     area: '22,400 SQ. FT.',
-    heroImage: '/src/assets/images/hero_dubai_waterfront_villa_1791539368219.jpg',
+    heroImage: heroDubaiWaterfrontVilla,
     galleryImages: [
-      '/src/assets/images/hero_dubai_waterfront_villa_1791539368219.jpg',
-      '/src/assets/images/portfolio_travertine_penthouse_terrace_1791539391748.jpg',
-      '/src/assets/images/materiality_marble_bronze_detail_1791539402279.jpg',
+      heroDubaiWaterfrontVilla,
+      portfolioTravertinePenthouseTerrace,
+      materialityMarbleBronzeDetail,
     ],
     architecturalStatement:
       'Conceived as a sculpture carved from French limestone and Roman travertine, this beachfront estate on the Dubai shoreline responds to the marine horizon with pure horizontal planes, deep shaded overhangs, and seamless transitions to a 35-meter infinity pool meeting the Arabian Gulf.',
@@ -84,11 +94,11 @@ export const PROJECTS: Project[] = [
     location: 'Karen Plains, Nairobi',
     year: '2024',
     area: '11,200 SQ. FT.',
-    heroImage: '/src/assets/images/portfolio_karen_solarium_interior_1791539379224.jpg',
+    heroImage: portfolioKarenSolariumInterior,
     galleryImages: [
-      '/src/assets/images/portfolio_karen_solarium_interior_1791539379224.jpg',
-      '/src/assets/images/hero_obsidian_manor_estate_1791539357090.jpg',
-      '/src/assets/images/materiality_marble_bronze_detail_1791539402279.jpg',
+      portfolioKarenSolariumInterior,
+      heroObsidianManorEstate,
+      materialityMarbleBronzeDetail,
     ],
     architecturalStatement:
       'A masterclass in interior spatial planning and bookmatched stone craft. Centered around a 7-meter monolith fireplace wall clad in Italian Calacatta Oro, this grand living pavilion juxtaposes timber post-and-beam warmth with precision bronze profiles and tailored architectural upholstery.',
@@ -113,11 +123,11 @@ export const PROJECTS: Project[] = [
     location: 'Downtown / Marina, Dubai',
     year: '2024',
     area: '9,500 SQ. FT.',
-    heroImage: '/src/assets/images/portfolio_travertine_penthouse_terrace_1791539391748.jpg',
+    heroImage: portfolioTravertinePenthouseTerrace,
     galleryImages: [
-      '/src/assets/images/portfolio_travertine_penthouse_terrace_1791539391748.jpg',
-      '/src/assets/images/hero_dubai_waterfront_villa_1791539368219.jpg',
-      '/src/assets/images/portfolio_karen_solarium_interior_1791539379224.jpg',
+      portfolioTravertinePenthouseTerrace,
+      heroDubaiWaterfrontVilla,
+      portfolioKarenSolariumInterior,
     ],
     architecturalStatement:
       'Perched 64 floors above the city, the Travertine Sky Penthouse reimagines high-altitude urban living as a classical open-air villa. Featuring heated Roman travertine terrace decking, an architectural bronze pergola with recessed illumination, and a 4-meter linear ethanol flame table.',
@@ -142,11 +152,11 @@ export const PROJECTS: Project[] = [
     location: 'Wilson VIP Terminal, Nairobi & Dubai',
     year: '2024',
     area: '14,000 SQ. FT.',
-    heroImage: '/src/assets/images/portfolio_aviation_private_lounge_1791539456684.jpg',
+    heroImage: portfolioAviationPrivateLounge,
     galleryImages: [
-      '/src/assets/images/portfolio_aviation_private_lounge_1791539456684.jpg',
-      '/src/assets/images/materiality_marble_bronze_detail_1791539402279.jpg',
-      '/src/assets/images/portfolio_travertine_penthouse_terrace_1791539391748.jpg',
+      portfolioAviationPrivateLounge,
+      materialityMarbleBronzeDetail,
+      portfolioTravertinePenthouseTerrace,
     ],
     architecturalStatement:
       'Created in collaboration with Lesus Executive Concierge and Lesus Private Jet, this high-security VIP executive terminal blends aeronautical sleekness with old-world private club intimacy. Vertical bronze fluting, custom Italian saddle-leather club armchairs, and floor-to-ceiling panoramic runway views.',
@@ -171,11 +181,11 @@ export const PROJECTS: Project[] = [
     location: 'Tigoni Highlands, Kenya',
     year: '2023',
     area: '13,500 SQ. FT.',
-    heroImage: '/src/assets/images/portfolio_solarium_exterior_1791539443456.jpg',
+    heroImage: portfolioSolariumExterior,
     galleryImages: [
-      '/src/assets/images/portfolio_solarium_exterior_1791539443456.jpg',
-      '/src/assets/images/portfolio_karen_solarium_interior_1791539379224.jpg',
-      '/src/assets/images/hero_obsidian_manor_estate_1791539357090.jpg',
+      portfolioSolariumExterior,
+      portfolioKarenSolariumInterior,
+      heroObsidianManorEstate,
     ],
     architecturalStatement:
       'Set against rolling tea plantations and native evergreen forests, this residence explores board-formed architectural concrete and travertine blocks in cantilevered volumes. Floating glass bedrooms hover over a stone-lined reflecting pool that mirrors the highland sky.',
