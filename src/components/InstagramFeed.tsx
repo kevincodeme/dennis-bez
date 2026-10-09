@@ -54,7 +54,7 @@ export const InstagramFeed: React.FC = () => {
                 </div>
 
                 <p className="text-xs sm:text-sm text-[#c8c5be] font-sans max-w-xl leading-relaxed mb-3">
-                  <strong className="text-white">Dennis Bezalel (Dennis Ochieng)</strong> — Architectural Designer & Creative Director. Documenting bespoke luxury residences, Bentley suites, modern farmhouses & private aviation. Nairobi · Dubai.
+                  <strong className="text-white">Dennis Bezalel (Dennis Ochieng)</strong>, Architectural Designer & Creative Director. Documenting bespoke luxury residences, Bentley suites, modern farmhouses & private aviation. Nairobi · Dubai.
                 </p>
 
                 {/* Engagement Metrics */}

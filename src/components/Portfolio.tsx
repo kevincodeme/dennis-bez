@@ -115,7 +115,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                       {project.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#9e9b94] font-sans font-light line-clamp-2 leading-relaxed mb-4">
-                      {project.subtitle} — {project.architecturalStatement}
+                      {project.subtitle}. {project.architecturalStatement}
                     </p>
                   </div>
 

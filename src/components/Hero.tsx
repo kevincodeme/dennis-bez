@@ -112,7 +112,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-[#c8c5be] font-sans font-light max-w-2xl leading-relaxed mt-1">
-              {currentProject.subtitle} — {currentProject.area}. Monolithic architectural composition synthesized with bespoke interior materiality.
+              {currentProject.subtitle} · {currentProject.area}. Monolithic architectural composition synthesized with bespoke interior materiality.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-4 pt-2">

@@ -15,14 +15,14 @@ export const AtelierPhilosophy: React.FC = () => {
       index: '02',
       title: 'The Sanctity of Rare Materiality',
       description:
-        'Uncompromising sourcing of bookmatched Calacatta Oro, honed Roman travertine, solid hand-patinated bronze, and Belgian smoked oak. Materials that patinate with regal dignity.',
+        'Uncompromising sourcing of bookmatched Calacatta Oro, honed Roman travertine, solid hand patinated bronze, and Belgian smoked oak. Materials that patinate with regal dignity.',
       icon: Sparkles,
     },
     {
       index: '03',
       title: 'Total Turnkey Cohesion',
       description:
-        'From master site planning and exterior architecture to bespoke cabinetry, concealed mechanicals, and custom low-slung furnishings. A singular artistic vision executed without fragmentation.',
+        'From master site planning and exterior architecture to bespoke cabinetry, concealed mechanicals, and custom low slung furnishings. A singular artistic vision executed without fragmentation.',
       icon: ShieldCheck,
     },
     {

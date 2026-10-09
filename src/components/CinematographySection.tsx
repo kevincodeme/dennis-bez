@@ -25,7 +25,7 @@ export const CinematographySection: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#9e9b94] font-sans font-light max-w-md leading-relaxed">
-            Beyond blueprints and static renderings, Dennis Bezalel pioneers cinematic spatial documentation. Capturing the living soul of architecture through high-altitude drone sweeps and intimate interior cinematography.
+            Beyond blueprints and static renderings, Dennis Bezalel pioneers cinematic spatial documentation. Capturing the living soul of architecture through high altitude drone sweeps and intimate interior cinematography.
           </p>
         </div>
 
