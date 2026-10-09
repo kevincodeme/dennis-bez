@@ -10,6 +10,7 @@ import { InstagramFeed } from '../components/InstagramFeed';
 import { CinematographySection } from '../components/CinematographySection';
 import { Monograph } from '../components/Monograph';
 import { HumanConversation } from '../components/HumanConversation';
+import { RevealOnScroll } from '../components/RevealOnScroll';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -72,52 +73,58 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          {/* Featured Projects Grid */}
+          {/* Featured Projects Grid with Intersection-Observer Scroll Animation */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {featuredProjects.map((project, idx) => (
-              <div
+              <RevealOnScroll
                 key={project.id}
-                onClick={() => handleSelectProject(project)}
-                className="group cursor-pointer flex flex-col justify-between bg-[#0e0e12] border border-white/10 hover:border-[#c5a880]/50 transition-all duration-500 overflow-hidden"
+                delayMs={idx * 150}
+                direction="up"
+                className="h-full"
               >
-                <div className="relative aspect-16/10 overflow-hidden bg-black">
-                  <img
-                    src={project.heroImage}
-                    alt={project.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <div className="absolute top-4 left-4 text-[10px] tracking-widest uppercase font-mono px-2.5 py-1 bg-black/70 border border-white/15 text-[#c5a880] backdrop-blur-sm">
-                    0{idx + 1} · {project.category}
-                  </div>
-                </div>
-
-                <div className="p-6 sm:p-8 flex flex-col justify-between grow">
-                  <div>
-                    <span className="text-[10px] tracking-[0.25em] uppercase text-[#9e9b94] font-sans block mb-2">
-                      {project.location} · {project.year}
-                    </span>
-                    <h3
-                      className="text-xl sm:text-2xl font-serif text-white group-hover:text-[#c5a880] transition-colors mb-3 leading-snug"
-                      style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-[#9e9b94] font-sans font-light line-clamp-3 leading-relaxed mb-6">
-                      {project.architecturalStatement}
-                    </p>
+                <div
+                  onClick={() => handleSelectProject(project)}
+                  className="group cursor-pointer flex flex-col justify-between h-full bg-[#0e0e12] border border-white/10 hover:border-[#c5a880]/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#c5a880]/5"
+                >
+                  <div className="relative aspect-16/10 overflow-hidden bg-black">
+                    <img
+                      src={project.heroImage}
+                      alt={project.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute top-4 left-4 text-[10px] tracking-widest uppercase font-mono px-2.5 py-1 bg-black/70 border border-white/15 text-[#c5a880] backdrop-blur-sm">
+                      0{idx + 1} · {project.category}
+                    </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#9e9b94] group-hover:text-[#c5a880] transition-colors">
-                    <span className="tracking-widest uppercase font-mono text-[11px]">{project.area}</span>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.18em] uppercase">
-                      <span>View Project Page</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </span>
+                  <div className="p-6 sm:p-8 flex flex-col justify-between grow">
+                    <div>
+                      <span className="text-[10px] tracking-[0.25em] uppercase text-[#9e9b94] font-sans block mb-2">
+                        {project.location} · {project.year}
+                      </span>
+                      <h3
+                        className="text-xl sm:text-2xl font-serif text-white group-hover:text-[#c5a880] transition-colors mb-3 leading-snug"
+                        style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
+                      >
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-[#9e9b94] font-sans font-light line-clamp-3 leading-relaxed mb-6">
+                        {project.architecturalStatement}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#9e9b94] group-hover:text-[#c5a880] transition-colors">
+                      <span className="tracking-widest uppercase font-mono text-[11px]">{project.area}</span>
+                      <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.18em] uppercase">
+                        <span>View Project Page</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import monogramImage from '../assets/dennis-bezalel-mark.png';
+import monogramImage from '../assets/dennis-bezalel-mark.webp';
 
 interface LogoProps {
   className?: string;

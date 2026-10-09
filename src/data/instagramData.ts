@@ -7,7 +7,7 @@ import {
   instagramModernFarmhouseWalkthrough,
   portraitDennisDearArtists,
 } from '../assets/images';
-import chinaHighlightCover from '../assets/images/dennis_sunrise_balcony_skyline_1791541533722.jpg';
+import chinaHighlightCover from '../assets/images/dennis_sunrise_balcony_skyline_1791541533722.webp';
 
 export interface InstagramHighlight {
   id: string;
