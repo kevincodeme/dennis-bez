@@ -4,10 +4,8 @@ import {
   dennisSunriseBalconySkyline,
   dennisYellowFerrariLifestyle,
   instagramBentleyInspiredMansion,
-  instagramModernFarmhouseWalkthrough,
   portraitDennisDearArtists,
 } from '../assets/images';
-import chinaHighlightCover from '../assets/images/dennis_sunrise_balcony_skyline_1791541533722.webp';
 
 export interface InstagramHighlight {
   id: string;
@@ -36,7 +34,6 @@ export const INSTAGRAM_HIGHLIGHTS: InstagramHighlight[] = [
   { id: 'h3', title: 'LifeStyle', coverImage: dennisYellowFerrariLifestyle },
   { id: 'h4', title: 'BTS', coverImage: dennisPrivateJetCabinFilming },
   { id: 'h5', title: 'LESUS', coverImage: dennisPrivateJetExterior },
-  { id: 'h6', title: 'csChina', coverImage: chinaHighlightCover },
 ];
 
 export const INSTAGRAM_POSTS: InstagramPost[] = [
@@ -113,19 +110,5 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     comments: '482',
     instagramUrl: 'https://www.instagram.com/dennisbezalel/',
     tags: ['#BentleyInterior', '#FineUrban', '#DennisBezalel', '#HauteLiving'],
-  },
-  {
-    id: 'modern-farmhouse',
-    title: 'The Modernist Highland Farmhouse',
-    caption:
-      'Modernist farmhouse architecture capturing the expansive rolling hills of Tigoni. Vaulted timber rafter geometry framing natural daylight and bespoke Scandinavian African low slung interiors. 2.6M+ views on YouTube.',
-    date: 'SEPTEMBER 2025',
-    location: 'Tigoni Highlands, Kenya',
-    image: instagramModernFarmhouseWalkthrough,
-    views: '2.6M',
-    likes: '89.4K',
-    comments: '1,240',
-    instagramUrl: 'https://www.instagram.com/dennisbezalel/',
-    tags: ['#ModernFarmhouse', '#DennisBezalel', '#ArchitecturalDigest', '#FineUrban'],
   },
 ];

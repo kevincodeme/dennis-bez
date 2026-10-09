@@ -76,10 +76,10 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="max-w-7xl mx-auto flex items-center justify-between text-[11px] tracking-[0.25em] uppercase text-[#c8c5be]/70 font-sans">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-[#c5a880] inline-block" />
-            <span>NAIROBI 01°17′S · DUBAI 25°12′N</span>
+            <span>NAIROBI · PHOTO ARCHIVE</span>
           </div>
           <div className="hidden sm:flex items-center gap-6">
-            <span>RESIDENTIAL ESTATES · PENTHOUSES · PRIVATE AVIATION</span>
+            <span>APARTMENTS · RESIDENTIAL INTERIORS</span>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="text-white/40">/</span>
               <span>{currentProject.location}</span>
               <span className="text-white/40">/</span>
-              <span>{currentProject.year}</span>
+              <span>Photo archive</span>
             </div>
 
             <h1
@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-[#c8c5be] font-sans font-light max-w-2xl leading-relaxed mt-1">
-              {currentProject.subtitle} · {currentProject.area}. Monolithic architectural composition synthesized with bespoke interior materiality.
+              {currentProject.architecturalStatement}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-4 pt-2">

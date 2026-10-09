@@ -74,7 +74,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Featured Projects Grid with Intersection-Observer Scroll Animation */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             {featuredProjects.map((project, idx) => (
               <RevealOnScroll
                 key={project.id}
@@ -102,7 +102,7 @@ export const HomePage: React.FC = () => {
                   <div className="p-6 sm:p-8 flex flex-col justify-between grow">
                     <div>
                       <span className="text-[10px] tracking-[0.25em] uppercase text-[#9e9b94] font-sans block mb-2">
-                        {project.location} · {project.year}
+                        {project.location} · Photo archive
                       </span>
                       <h3
                         className="text-xl sm:text-2xl font-serif text-white group-hover:text-[#c5a880] transition-colors mb-3 leading-snug"
@@ -116,7 +116,7 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#9e9b94] group-hover:text-[#c5a880] transition-colors">
-                      <span className="tracking-widest uppercase font-mono text-[11px]">{project.area}</span>
+                      <span className="tracking-widest uppercase font-mono text-[11px]">Selected photographs</span>
                       <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.18em] uppercase">
                         <span>View Project Page</span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

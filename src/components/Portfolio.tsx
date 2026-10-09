@@ -7,7 +7,7 @@ interface PortfolioProps {
   onSelectProject: (project: Project) => void;
 }
 
-type FilterCategory = 'All' | 'Estates' | 'Penthouses' | 'Interiors' | 'Hospitality';
+type FilterCategory = 'All' | 'Apartments' | 'Interiors';
 
 export const Portfolio: React.FC<PortfolioProps> = ({
   projects,
@@ -17,10 +17,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({
 
   const categories: FilterCategory[] = [
     'All',
-    'Estates',
-    'Penthouses',
+    'Apartments',
     'Interiors',
-    'Hospitality',
   ];
 
   const filteredProjects =
@@ -101,7 +99,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                       <span>·</span>
                       <span>{project.location}</span>
                     </div>
-                    <span className="font-mono text-[11px] text-white/70">{project.year}</span>
+                    <span className="font-mono text-[11px] text-white/70">Photo archive</span>
                   </div>
                 </div>
 
@@ -122,7 +120,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                   {/* Unboxed Metadata Footer */}
                   <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#9e9b94]">
                     <div className="flex items-center gap-2">
-                      <span className="text-white/80 font-medium">{project.area}</span>
+                      <span className="text-white/80 font-medium">Selected photographs</span>
                       <span>·</span>
                       <span>Bespoke Commission</span>
                     </div>
@@ -141,7 +139,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
         {/* Bottom Editorial Callout */}
         <div className="mt-16 text-center border-t border-white/10 pt-10">
           <p className="text-xs text-[#9e9b94] font-sans tracking-widest uppercase">
-            All commissions executed in strict client confidentiality · Full architectural plans available by request
+            Selected projects shown from the supplied photo archive
           </p>
         </div>
       </div>

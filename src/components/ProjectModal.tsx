@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, Maximize2, MapPin, Calendar, Ruler, Layers, Sparkles, Sun, Moon } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, MapPin, Ruler, Layers, Sparkles, Sun, Moon } from 'lucide-react';
 import { Project } from '../data/portfolioData';
 
 interface ProjectModalProps {
@@ -44,7 +44,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#121216] shrink-0">
           <div className="flex items-center gap-4">
             <span className="text-[11px] tracking-[0.25em] uppercase text-[#c5a880] font-sans font-medium">
-              Architectural Dossier
+              Project Photo Archive
             </span>
             <span className="text-white/20">|</span>
             <span className="font-serif text-lg text-white font-normal truncate max-w-xs sm:max-w-md">
@@ -127,14 +127,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {/* Architectural Tags overlay */}
             <div className="absolute bottom-4 left-6 flex items-center gap-2 text-xs font-sans text-white/80">
               <span className="bg-black/60 px-2.5 py-1 border border-white/10">{project.category}</span>
-              <span className="bg-black/60 px-2.5 py-1 border border-white/10">{project.area}</span>
+              <span className="bg-black/60 px-2.5 py-1 border border-white/10">Photo archive</span>
             </div>
           </div>
 
           {/* Project Details Body */}
           <div className="p-6 sm:p-10 max-w-5xl mx-auto">
             {/* Meta Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-white/10 text-xs font-sans mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 py-4 border-y border-white/10 text-xs font-sans mb-8">
               <div className="flex items-center gap-2 text-[#9e9b94]">
                 <MapPin className="w-4 h-4 text-[#c5a880] shrink-0" />
                 <div>
@@ -145,15 +145,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <div className="flex items-center gap-2 text-[#9e9b94]">
                 <Ruler className="w-4 h-4 text-[#c5a880] shrink-0" />
                 <div>
-                  <span className="block text-[10px] uppercase tracking-wider text-white/40">Gross Built Area</span>
-                  <span className="text-[#eae7e1] font-medium">{project.area}</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-[#9e9b94]">
-                <Calendar className="w-4 h-4 text-[#c5a880] shrink-0" />
-                <div>
-                  <span className="block text-[10px] uppercase tracking-wider text-white/40">Commission Year</span>
-                  <span className="text-[#eae7e1] font-medium">{project.year}</span>
+                  <span className="block text-[10px] uppercase tracking-wider text-white/40">Photo archive</span>
+                  <span className="text-[#eae7e1] font-medium">{project.keyFeatures.length} photo subjects</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-[#9e9b94]">
@@ -175,7 +168,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     : 'text-[#9e9b94] hover:text-white'
                 }`}
               >
-                Architectural Concept
+                Project Record
               </button>
               <button
                 onClick={() => setActiveTab('spatial')}
@@ -185,7 +178,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     : 'text-[#9e9b94] hover:text-white'
                 }`}
               >
-                Spatial Layout & Zones
+                Photographed Spaces
               </button>
               <button
                 onClick={() => setActiveTab('materials')}
@@ -195,7 +188,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     : 'text-[#9e9b94] hover:text-white'
                 }`}
               >
-                Materiality Palette
+                Visible Details
               </button>
             </div>
 
@@ -216,7 +209,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
                 <div className="border border-white/10 bg-[#131317] p-6 mt-6">
                   <span className="text-[11px] tracking-[0.25em] uppercase text-[#c5a880] font-sans font-medium block mb-4">
-                    Key Architectural Invariants
+                    Photo Subjects
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {project.keyFeatures.map((feat, idx) => (
@@ -234,7 +227,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {activeTab === 'spatial' && (
               <div className="space-y-6">
                 <p className="text-xs text-[#9e9b94] leading-relaxed">
-                  Every spatial zone was calculated for sightline harmony, acoustic tranquility, and seamless flow between private sanctuaries and monumental public entertaining pavilions.
+                  Areas identified in the photographs supplied for this project.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -265,7 +258,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {activeTab === 'materials' && (
               <div className="space-y-6">
                 <p className="text-xs text-[#9e9b94] leading-relaxed">
-                  Curated noble materials executed by master stone masons, bronze artisans, and architectural joinery craftsmen.
+                  Finishes and details visible in the supplied photographs.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -287,7 +280,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         {/* Modal Bottom Action Bar */}
         <div className="p-6 border-t border-white/10 bg-[#121216] flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
           <div className="flex items-center gap-4 text-xs text-[#9e9b94]">
-            <span>Commissioned by Dennis Bezalel Atelier</span>
+            <span>Images from the supplied project archive</span>
             <span>·</span>
             <span>All Rights Reserved</span>
           </div>
