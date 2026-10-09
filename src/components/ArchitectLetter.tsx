@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, PenTool } from 'lucide-react';
+import { portraitDennisDearArtists } from '../assets/images';
 
 export const ArchitectLetter: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ export const ArchitectLetter: React.FC = () => {
             <div className="relative border border-white/15 bg-black p-3 sm:p-4 shadow-2xl">
               <div className="relative aspect-4/5 overflow-hidden bg-[#16161a]">
                 <img
-                  src="/src/assets/images/portrait_dennis_dear_artists_1791541524326.jpg"
+                  src={portraitDennisDearArtists}
                   alt="Dennis Ochieng drafting at his desk late at night"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"

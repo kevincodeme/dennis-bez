@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, GraduationCap, MapPin, Globe, Film, ArrowUpRight } from 'lucide-react';
+import { portraitDennisDearArtists } from '../assets/images';
 
 interface MonographProps {
   onOpenCommissionModal: () => void;
@@ -15,7 +16,7 @@ export const Monograph: React.FC<MonographProps> = ({ onOpenCommissionModal }) =
             <div className="relative border border-white/15 bg-black p-3 pb-8">
               <div className="relative aspect-square overflow-hidden bg-[#16161a]">
                 <img
-                  src="/src/assets/images/portrait_dennis_dear_artists_1791541524326.jpg"
+                  src={portraitDennisDearArtists}
                   alt="Dennis Ochieng (Dennis Bezalel) at architectural drafting desk"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ARCHITECTURAL_FILMS, FilmProject } from '../data/portfolioData';
 import { Play, Pause, Film, Video, Eye, Award, ExternalLink } from 'lucide-react';
+import { portfolioAviationPrivateLounge } from '../assets/images';
 
 export const CinematographySection: React.FC = () => {
   const [selectedFilm, setSelectedFilm] = useState<FilmProject>(ARCHITECTURAL_FILMS[0]);
@@ -32,7 +33,7 @@ export const CinematographySection: React.FC = () => {
         <div className="relative w-full aspect-video sm:h-[540px] bg-black border border-white/15 overflow-hidden mb-12 flex flex-col justify-between">
           {/* Simulated Video Frame with Ambient Lighting */}
           <img
-            src="/src/assets/images/portfolio_aviation_private_lounge_1791539456684.jpg"
+            src={portfolioAviationPrivateLounge}
             alt="Cinematic architectural scene"
             referrerPolicy="no-referrer"
             className={`w-full h-full object-cover object-center transition-all duration-1000 ${
