@@ -60,7 +60,7 @@ export const InstagramFeed: React.FC = () => {
                 {/* Engagement Metrics */}
                 <div className="flex items-center gap-6 text-xs text-[#9e9b94] font-sans">
                   <span>
-                    <strong className="text-white font-mono">1M+</strong> Followers
+                    <strong className="text-white font-mono">6,617</strong> Followers
                   </span>
                   <span>·</span>
                   <span>
