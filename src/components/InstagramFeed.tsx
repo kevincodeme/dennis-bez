@@ -158,10 +158,12 @@ export const InstagramFeed: React.FC = () => {
         {/* 6-Grid of Real Instagram Posts */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {INSTAGRAM_POSTS.map((post) => (
-            <div
+            <button
               key={post.id}
               onClick={() => setSelectedPost(post)}
-              className="group bg-[#121216] border border-white/10 hover:border-[#c5a880]/60 transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden"
+              type="button"
+              aria-label={`Inspect Instagram post: ${post.title}`}
+              className="group bg-[#121216] border border-white/10 hover:border-[#c5a880]/60 transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden text-left w-full"
             >
               {/* Media Container with Reel Overlay */}
               <div className="relative aspect-4/3 w-full overflow-hidden bg-black">
@@ -222,7 +224,7 @@ export const InstagramFeed: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
@@ -233,6 +235,9 @@ export const InstagramFeed: React.FC = () => {
           onClick={(e) => {
             if (e.target === e.currentTarget) setSelectedPost(null);
           }}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedPost.title} Instagram post`}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300"
         >
           <div className="relative w-full max-w-4xl bg-[#101014] border border-white/15 flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
@@ -267,6 +272,8 @@ export const InstagramFeed: React.FC = () => {
                   </div>
                   <button
                     onClick={() => setSelectedPost(null)}
+                    type="button"
+                    aria-label="Close Instagram post"
                     className="p-1 text-[#9e9b94] hover:text-white"
                   >
                     <X className="w-5 h-5" />

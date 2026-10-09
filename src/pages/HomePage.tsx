@@ -82,8 +82,8 @@ export const HomePage: React.FC = () => {
                 direction="up"
                 className="h-full"
               >
-                <div
-                  onClick={() => handleSelectProject(project)}
+                <Link
+                  to={`/residences/${project.id}`}
                   className="group cursor-pointer flex flex-col justify-between h-full bg-[#0e0e12] border border-white/10 hover:border-[#c5a880]/50 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#c5a880]/5"
                 >
                   <div className="relative aspect-16/10 overflow-hidden bg-black">
@@ -123,7 +123,7 @@ export const HomePage: React.FC = () => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </RevealOnScroll>
             ))}
           </div>

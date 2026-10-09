@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
@@ -65,7 +65,6 @@ export const Navbar: React.FC<NavbarProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,11 +92,6 @@ export const Navbar: React.FC<NavbarProps> = () => {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
-
-  const handleMenuClick = (item: MenuItem) => {
-    closeMenu();
-    navigate(item.href);
-  };
 
   const isActive = (path: string) => {
     if (path === '/' && location.pathname === '/') return true;
@@ -197,11 +191,9 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
             <nav className="flex flex-col space-y-6 sm:space-y-8" aria-label="Directory navigation">
               {/* Home portal entry */}
-              <div
-                onClick={() => {
-                  closeMenu();
-                  navigate('/');
-                }}
+              <Link
+                to="/"
+                onClick={closeMenu}
                 className="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-b border-white/5 pb-6 transition-all duration-300 cursor-pointer hover:border-white/20"
               >
                 <div className="flex items-baseline gap-4 sm:gap-8">
@@ -245,14 +237,15 @@ export const Navbar: React.FC<NavbarProps> = () => {
                     }`}
                   />
                 </div>
-              </div>
+              </Link>
 
               {MENU_ITEMS.map((item) => {
                 const active = isActive(item.href);
                 return (
-                  <div
+                  <Link
                     key={item.num}
-                    onClick={() => handleMenuClick(item)}
+                    to={item.href}
+                    onClick={closeMenu}
                     className="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-b border-white/5 pb-6 transition-all duration-300 cursor-pointer hover:border-white/20"
                   >
                     <div className="flex items-baseline gap-4 sm:gap-8">
@@ -299,7 +292,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                         }`}
                       />
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </nav>

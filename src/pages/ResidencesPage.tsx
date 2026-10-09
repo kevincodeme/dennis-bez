@@ -54,6 +54,8 @@ export const ResidencesPage: React.FC = () => {
                 onClick={() => {
                   setActiveCategory(cat);
                 }}
+                type="button"
+                aria-pressed={activeCategory === cat}
                 className={`px-3 py-1.5 text-xs font-sans tracking-widest uppercase transition-colors cursor-pointer ${
                   activeCategory === cat
                     ? 'text-[#c5a880] font-medium border-b border-[#c5a880] -mb-[10px]'
@@ -67,7 +69,8 @@ export const ResidencesPage: React.FC = () => {
         </div>
 
         {/* Featured project from the photo archive */}
-        <div className="mb-24 border border-white/10 bg-[#0c0c0f] overflow-hidden">
+        {activeCategory === 'All' && (
+          <div className="mb-24 border border-white/10 bg-[#0c0c0f] overflow-hidden">
           <div className="p-8 sm:p-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <div className="flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-[#c5a880] font-sans mb-2">
@@ -110,13 +113,14 @@ export const ResidencesPage: React.FC = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* Grid of projects in the photo archive */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, idx) => (
-            <div
+            <Link
               key={project.id}
-              onClick={() => navigate(`/residences/${project.id}`)}
+              to={`/residences/${project.id}`}
               className="group cursor-pointer flex flex-col justify-between bg-[#0b0b0e] border border-white/10 hover:border-[#c5a880]/60 transition-all duration-500 overflow-hidden"
             >
               <div className="relative aspect-16/11 overflow-hidden bg-black">
@@ -159,7 +163,7 @@ export const ResidencesPage: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
