@@ -16,7 +16,7 @@ export const ProjectDetailPage: React.FC = () => {
   const prevProject = PROJECTS[(currentIndex - 1 + PROJECTS.length) % PROJECTS.length];
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
-  const allImages = [project.heroImage, ...(project.galleryImages || [])];
+  const allImages = project.galleryImages.length > 0 ? project.galleryImages : [project.heroImage];
   const currentImage = allImages[activeImageIndex] || project.heroImage;
 
   return (
@@ -129,21 +129,21 @@ export const ProjectDetailPage: React.FC = () => {
 
             <div>
               <span className="text-[10px] tracking-[0.25em] uppercase text-[#9e9b94] font-sans block mb-1">
-                Completed
+                Project record
               </span>
               <span className="text-sm font-sans text-white font-medium flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-[#c5a880]" />
-                {project.year}
+                Photo archive
               </span>
             </div>
 
             <div>
               <span className="text-[10px] tracking-[0.25em] uppercase text-[#9e9b94] font-sans block mb-1">
-                Gross Spatial Area
+                Area
               </span>
               <span className="text-sm font-sans text-white font-medium flex items-center gap-1.5">
                 <Ruler className="w-3.5 h-3.5 text-[#c5a880]" />
-                {project.area}
+                Not listed
               </span>
             </div>
 
@@ -207,13 +207,13 @@ export const ProjectDetailPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-12 border-t border-b border-white/10 mb-16">
           <div className="lg:col-span-5">
             <span className="text-[11px] tracking-[0.3em] uppercase text-[#c5a880] font-sans font-medium block mb-3">
-              Design Philosophy
+              Project Record
             </span>
             <h2
               className="text-2xl sm:text-3xl font-serif text-white font-normal leading-snug"
               style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
             >
-              The Spatial Ethos
+              Photo archive
             </h2>
           </div>
 
@@ -222,10 +222,7 @@ export const ProjectDetailPage: React.FC = () => {
               "{project.architecturalStatement}"
             </p>
             <p>
-              In {project.title}, the aim was to sculpt an unyielding balance between monumentality and intimate warmth. Inspired by the bespoke craftsmanship of Ferris Rafauli, Dennis Bezalel carefully articulated natural sightlines, daylight illumination, and bespoke material junctions.
-            </p>
-            <p>
-              Every surface—from the bookmatched stone surfaces to the brushed patinated bronze reveals—was hand-selected and crafted to age with dignity over generations.
+              The gallery contains the photographs available in the supplied project archive. Project dates, dimensions and detailed specifications were not included with the images.
             </p>
           </div>
         </div>
@@ -235,7 +232,7 @@ export const ProjectDetailPage: React.FC = () => {
           {/* Spatial Zones */}
           <div className="border border-white/10 bg-[#0c0c0f] p-8 sm:p-10">
             <span className="text-[11px] tracking-[0.3em] uppercase text-[#c5a880] font-sans font-medium block mb-6">
-              Spatial Zones & Flow
+              Photographed Spaces
             </span>
             <div className="space-y-6">
               {project.spatialZones?.map((zone, idx) => (
@@ -250,7 +247,7 @@ export const ProjectDetailPage: React.FC = () => {
           {/* Materiality Breakdown */}
           <div className="border border-white/10 bg-[#0c0c0f] p-8 sm:p-10">
             <span className="text-[11px] tracking-[0.3em] uppercase text-[#c5a880] font-sans font-medium block mb-6">
-              Materiality Palette
+              Visible Details
             </span>
             <div className="space-y-4">
               {project.materials?.map((mat, idx) => (

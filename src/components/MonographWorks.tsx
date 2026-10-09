@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Project } from '../data/portfolioData';
-import { ArrowUpRight, Compass, Eye, Sparkles, MapPin, Ruler } from 'lucide-react';
-import { architecturalHandSketchTrace } from '../assets/images';
+import { ArrowUpRight, Eye } from 'lucide-react';
 
 interface MonographWorksProps {
   projects: Project[];
@@ -14,16 +13,13 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
   onOpenProjectDossier,
   onOpenCommission,
 }) => {
-  // Allow toggling hand sketch mode on the lead project
-  const [showSketchTrace, setShowSketchTrace] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<'All' | 'Estates' | 'Interiors' | 'Hospitality'>('All');
+  const [activeCategory, setActiveCategory] = useState<'All' | 'Apartments' | 'Interiors'>('All');
 
   const filteredProjects = activeCategory === 'All'
     ? projects
     : projects.filter((p) => {
-        if (activeCategory === 'Estates') return p.category === 'Estates' || p.category === 'Penthouses';
+        if (activeCategory === 'Apartments') return p.category === 'Apartments';
         if (activeCategory === 'Interiors') return p.category === 'Interiors';
-        if (activeCategory === 'Hospitality') return p.category === 'Hospitality';
         return true;
       });
 
@@ -49,13 +45,10 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             {/* Filter buttons styled like classical editorial chapters */}
             <div className="flex items-center gap-2 border-b border-white/15 pb-2">
-              {(['All', 'Estates', 'Interiors', 'Hospitality'] as const).map((cat) => (
+              {(['All', 'Apartments', 'Interiors'] as const).map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => {
-                    setActiveCategory(cat);
-                    setShowSketchTrace(false);
-                  }}
+                  onClick={() => setActiveCategory(cat)}
                   className={`px-3 py-1 text-xs font-sans tracking-widest uppercase transition-colors cursor-pointer ${
                     activeCategory === cat
                       ? 'text-[#c5a880] font-medium border-b border-[#c5a880] -mb-[9px]'
@@ -68,7 +61,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
             </div>
 
             <span className="text-xs text-[#9e9b94] font-mono hidden md:block">
-              Volumes I to IV · 2017 to 2026
+              Photo archive · {projects.length} projects
             </span>
           </div>
         </div>
@@ -90,70 +83,28 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
               </h3>
             </div>
 
-            {/* Interactive Hand Sketch vs Reality Toggle */}
-            <div className="flex items-center gap-3 bg-black/60 p-1.5 border border-white/15">
-              <button
-                onClick={() => setShowSketchTrace(false)}
-                className={`px-4 py-2 text-xs font-sans uppercase tracking-wider transition-colors cursor-pointer ${
-                  !showSketchTrace ? 'bg-[#c5a880] text-black font-medium' : 'text-[#9e9b94] hover:text-white'
-                }`}
-              >
-                Finished Architecture
-              </button>
-              <button
-                onClick={() => setShowSketchTrace(true)}
-                className={`px-4 py-2 text-xs font-sans uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5 ${
-                  showSketchTrace ? 'bg-[#c5a880] text-black font-medium' : 'text-[#9e9b94] hover:text-white'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Hand Drafting Trace</span>
-              </button>
-            </div>
+            <span className="text-xs uppercase tracking-widest text-[#c5a880] border border-[#c5a880]/40 px-4 py-2">
+              Photo archive
+            </span>
           </div>
 
-          {/* Visual Canvas (Displays either Real Residence or Dennis's Hand Drafting Drawing) */}
+          {/* Featured photograph */}
           <div className="relative w-full h-[60vh] sm:h-[70vh] bg-black overflow-hidden group">
-            {showSketchTrace ? (
-              <div className="relative w-full h-full animate-in fade-in duration-500">
-                <img
-                  src={architecturalHandSketchTrace}
-                  alt="Dennis's hand drawn concept sketch on yellow tracing paper"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute top-6 left-6 bg-black/85 p-4 border border-white/15 max-w-sm backdrop-blur-md">
-                  <span className="text-[10px] uppercase tracking-widest text-[#c5a880] font-sans block mb-1">
-                    Archival Studio Trace Paper
-                  </span>
-                  <p
-                    className="text-sm text-[#f4f2ee] leading-relaxed"
-                    style={{ fontFamily: "'Homemade Apple', cursive" }}
-                  >
-                    "Keep south elevation glazing open to ridge breezes. Cantilever master deck 4.2m over the reflection court."
-                  </p>
-                  <span className="text-[10px] text-[#9e9b94] font-sans block mt-2">
-                    Dennis Ochieng, Scale 1:50 Studio Drawing
-                  </span>
-                </div>
+            <div
+              onClick={() => onOpenProjectDossier(leadProject)}
+              className="relative w-full h-full animate-in fade-in duration-500 cursor-pointer"
+            >
+              <img
+                src={leadProject.heroImage}
+                alt={leadProject.title}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center scale-100 group-hover:scale-102 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 text-xs font-sans text-white/80">
+                <span>Photo archive · {leadProject.location}</span>
               </div>
-            ) : (
-              <div
-                onClick={() => onOpenProjectDossier(leadProject)}
-                className="relative w-full h-full animate-in fade-in duration-500 cursor-pointer"
-              >
-                <img
-                  src={leadProject.heroImage}
-                  alt={leadProject.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center scale-100 group-hover:scale-102 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 text-xs font-sans text-white/80">
-                  <span>Gross Built Area: {leadProject.area} · {leadProject.location} · {leadProject.year}</span>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
 
           {/* Editorial Monograph Text Block */}
@@ -165,7 +116,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
               <div className="flex items-center gap-4 text-xs text-[#9e9b94] font-sans">
                 <span>Dennis Ochieng · Lead Architectural Designer</span>
                 <span>·</span>
-                <span>Fine Urban Construction Collaboration</span>
+                <span>Photographs from the supplied archive</span>
               </div>
             </div>
 
@@ -218,7 +169,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
                       <span className="text-[#c5a880] font-sans uppercase tracking-wider text-[11px] block">
                         {project.location}
                       </span>
-                      <span className="font-mono text-white/70">{project.area} · Completed {project.year}</span>
+                      <span className="font-mono text-white/70">Photo archive · {project.location}</span>
                     </div>
                   </div>
                 </div>
@@ -247,7 +198,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
                     {/* Material callout */}
                     <div className="border-t border-white/10 pt-4 mb-6">
                       <span className="text-[10px] uppercase tracking-widest text-white/40 block mb-2 font-mono">
-                        Primary Materiality
+                        Visible Details
                       </span>
                       <div className="flex flex-wrap gap-2 text-xs text-[#c8c5be]">
                         {project.materials.map((m, mIdx) => (

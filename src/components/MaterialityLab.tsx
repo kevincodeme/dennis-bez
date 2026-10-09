@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MATERIALS, MaterialDetail } from '../data/portfolioData';
-import { Sparkles, MapPin, Layers, Check } from 'lucide-react';
-import { materialityMarbleBronzeDetail } from '../assets/images';
+import { Layers } from 'lucide-react';
+import { bqTowersKitchen } from '../assets/images';
 
 export const MaterialityLab: React.FC = () => {
   const [selectedMaterial, setSelectedMaterial] = useState<MaterialDetail>(MATERIALS[0]);
@@ -24,17 +24,17 @@ export const MaterialityLab: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#9e9b94] font-sans font-light max-w-md leading-relaxed">
-            Every architectural residence is defined by noble natural materials. We collaborate directly with historic stone quarries in Tuscany, timber mills in Belgium, and metal ateliers in Milan.
+            Explore illustrative finish references alongside a real kitchen photograph from the B&Q Towers five bedroom property archive. The palette is not a specification for the photographed property.
           </p>
         </div>
 
         {/* 2-Column Split: Visual Macro Detail & Interactive Material Inspector */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-          {/* Left Column: Macro Craftsmanship Photography */}
+          {/* Left Column: Real project photography */}
           <div className="lg:col-span-6 relative bg-black border border-white/10 overflow-hidden flex flex-col justify-end min-h-[460px] lg:min-h-full">
             <img
-              src={materialityMarbleBronzeDetail}
-              alt="Craftsmanship detail showing fluted oak, bronze trim and Nero Marquina marble"
+              src={bqTowersKitchen}
+              alt="Kitchen with white cabinetry and tiled flooring from the B&Q Towers property archive"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-700"
             />
@@ -43,13 +43,13 @@ export const MaterialityLab: React.FC = () => {
             {/* Inset Badge */}
             <div className="relative z-10 p-8">
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#c5a880] font-sans font-medium block mb-1">
-                Atelier Workshop Study
+                B&Q Towers Photo Archive
               </span>
               <h3 className="font-serif text-2xl text-white font-normal mb-2">
-                Fluted Oak · Burnished Bronze · Marquina
+                Kitchen and built in cabinetry
               </h3>
               <p className="text-xs text-[#c8c5be] font-sans font-light max-w-md">
-                Macro architectural millwork junction executed with a 3mm hairline brass shadow gap and bookmatched natural stone.
+                A photograph from the five bedroom property archive, showing the kitchen cabinetry, work surfaces and tiled floor.
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export const MaterialityLab: React.FC = () => {
           <div className="lg:col-span-6 flex flex-col justify-between gap-8 bg-[#121216] border border-white/10 p-8 sm:p-10">
             <div>
               <span className="text-xs font-sans tracking-[0.2em] uppercase text-[#c5a880] font-medium block mb-6">
-                Inspect Specimen Palette
+                Illustrative Finish Palette
               </span>
 
               {/* Swatch Selector Strip */}
@@ -104,10 +104,6 @@ export const MaterialityLab: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-[#9e9b94] font-sans">
-                    <MapPin className="w-3.5 h-3.5 text-[#c5a880]" />
-                    <span>{selectedMaterial.origin}</span>
-                  </div>
                 </div>
 
                 <div>
@@ -130,13 +126,13 @@ export const MaterialityLab: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom Sourcing Guarantee */}
+            {/* Palette note */}
             <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs text-[#9e9b94]">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#c5a880]" />
-                <span>Single Block Quarry Selection</span>
+                <Layers className="w-4 h-4 text-[#c5a880]" />
+                <span>Material references</span>
               </div>
-              <span>Certificates of Authenticity</span>
+              <span>Not project specifications</span>
             </div>
           </div>
         </div>
