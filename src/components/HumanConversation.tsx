@@ -114,7 +114,7 @@ export const HumanConversation: React.FC<HumanConversationProps> = ({
           Let’s Have a Conversation
         </h2>
         <p className="text-sm text-[#9e9b94] font-sans font-light leading-relaxed">
-          I take on only three to four private estate commissions each calendar year to ensure my personal presence from the first pencil trace to final handover. When you submit your note, it connects directly to my private WhatsApp.
+          I take on only three to four private estate commissions each calendar year to ensure my personal presence from the first pencil trace to final handover. When you submit your note, WhatsApp opens with your inquiry ready to review and send.
         </p>
       </div>
 
@@ -195,18 +195,18 @@ export const HumanConversation: React.FC<HumanConversationProps> = ({
               <CheckCircle2 className="w-14 h-14 text-[#25D366] mx-auto animate-bounce" />
               <div>
                 <span className="text-[11px] font-sans tracking-[0.25em] uppercase text-[#c5a880] block mb-1">
-                  Dispatched to WhatsApp
+                  WhatsApp Conversation Ready
                 </span>
                 <h3
                   className="font-serif text-3xl text-white font-normal"
                   style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
                 >
-                  Conversation Sent to Dennis
+                  Finish in WhatsApp
                 </h3>
               </div>
 
               <p className="text-xs sm:text-sm text-[#9e9b94] font-sans max-w-md mx-auto leading-relaxed">
-                Thank you, <strong className="text-white font-medium">{name || 'Client'}</strong>. Your inquiry and architectural vision have been routed directly to Dennis Ochieng’s WhatsApp (<span className="text-[#25D366] font-mono">{DISPLAY_PHONE}</span>).
+                Thank you, <strong className="text-white font-medium">{name || 'Client'}</strong>. Your inquiry is prepared for Dennis Ochieng’s WhatsApp (<span className="text-[#25D366] font-mono">{DISPLAY_PHONE}</span>). Review it in WhatsApp and press Send to complete the conversation.
               </p>
 
               {/* Message Summary Preview */}

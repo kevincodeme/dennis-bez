@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { ARCHITECTURAL_FILMS, FilmProject } from '../data/portfolioData';
-import { Play, Pause, Film, Video, Eye, Award, ExternalLink } from 'lucide-react';
+import { Play, Film, ExternalLink } from 'lucide-react';
 import { portfolioAviationPrivateLounge } from '../assets/images';
 
 export const CinematographySection: React.FC = () => {
   const [selectedFilm, setSelectedFilm] = useState<FilmProject>(ARCHITECTURAL_FILMS[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <section id="cinematography" className="w-full py-28 sm:py-36 bg-[#09090b] relative">
@@ -31,14 +30,12 @@ export const CinematographySection: React.FC = () => {
 
         {/* Master Reel Cinema Screen */}
         <div className="relative w-full aspect-video sm:h-[540px] bg-black border border-white/15 overflow-hidden mb-12 flex flex-col justify-between">
-          {/* Simulated Video Frame with Ambient Lighting */}
+          {/* Film preview image */}
           <img
             src={portfolioAviationPrivateLounge}
             alt="Cinematic architectural scene"
             referrerPolicy="no-referrer"
-            className={`w-full h-full object-cover object-center transition-all duration-1000 ${
-              isPlaying ? 'scale-105 filter brightness-105' : 'scale-100 filter brightness-75'
-            }`}
+            className="w-full h-full object-cover object-center brightness-75"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/30 pointer-events-none" />
 
@@ -47,30 +44,33 @@ export const CinematographySection: React.FC = () => {
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
               <span className="text-xs font-sans tracking-[0.2em] uppercase text-white font-medium">
-                4K Master Cut Cinema
+                Architectural Film Portfolio
               </span>
             </div>
 
-            <div className="text-xs font-mono text-white/70">
-              {isPlaying ? 'PLAYING // 01:42 / 04:18' : 'PAUSED // REC STANDBY'}
-            </div>
+            <a
+              href="https://youtube.com/@dennisbezalel?si=sjAgKEOQGBJD4tRj"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-mono text-white/80 hover:text-[#c5a880] transition-colors"
+            >
+              Watch films on YouTube
+            </a>
           </div>
 
-          {/* Center Play Button Overlay */}
+          {/* YouTube is the source for the complete films. */}
           <div className="relative z-10 flex flex-col items-center justify-center my-auto">
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
+            <a
+              href="https://youtube.com/@dennisbezalel?si=sjAgKEOQGBJD4tRj"
+              target="_blank"
+              rel="noreferrer"
               className="w-20 h-20 rounded-full border border-white/40 bg-black/60 hover:bg-[#c5a880] hover:text-black hover:border-[#c5a880] text-white flex items-center justify-center transition-all duration-300 cursor-pointer backdrop-blur-md group"
-              aria-label={isPlaying ? 'Pause Reel' : 'Play Cinematic Reel'}
+              aria-label="Watch architectural films on YouTube"
             >
-              {isPlaying ? (
-                <Pause className="w-7 h-7" />
-              ) : (
-                <Play className="w-7 h-7 ml-1" />
-              )}
-            </button>
+              <Play className="w-7 h-7 ml-1" />
+            </a>
             <span className="text-[11px] tracking-[0.25em] uppercase text-white/80 font-sans mt-4">
-              {isPlaying ? 'Pause Playback' : 'Watch Architectural Reel'}
+              Watch Architectural Films
             </span>
           </div>
 
@@ -108,13 +108,12 @@ export const CinematographySection: React.FC = () => {
           {ARCHITECTURAL_FILMS.map((film) => {
             const isSelected = selectedFilm.id === film.id;
             return (
-              <div
+              <button
                 key={film.id}
-                onClick={() => {
-                  setSelectedFilm(film);
-                  setIsPlaying(true);
-                }}
-                className={`p-6 border transition-all cursor-pointer flex flex-col justify-between ${
+                onClick={() => setSelectedFilm(film)}
+                type="button"
+                aria-pressed={isSelected}
+                className={`p-6 border transition-all cursor-pointer flex flex-col justify-between text-left w-full ${
                   isSelected
                     ? 'border-[#c5a880] bg-[#14141a]'
                     : 'border-white/10 bg-[#0e0e11] hover:border-white/30'
@@ -139,9 +138,11 @@ export const CinematographySection: React.FC = () => {
 
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-[#c5a880]">
                   <span>{film.metrics}</span>
-                  <span className="underline underline-offset-4">Load Reel</span>
+                  <span className="underline underline-offset-4">
+                    {isSelected ? 'Selected Film' : 'View Film Details'}
+                  </span>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>

@@ -161,9 +161,11 @@ export const ProjectDetailPage: React.FC = () => {
 
         {/* Hero Gallery Showcase */}
         <div className="mb-16">
-          <div
+          <button
             onClick={() => setLightboxOpen(true)}
-            className="relative aspect-16/9 sm:aspect-21/9 overflow-hidden bg-black border border-white/15 cursor-zoom-in group shadow-2xl"
+            type="button"
+            aria-label={`Open ${project.title} image ${activeImageIndex + 1} of ${allImages.length}`}
+            className="relative aspect-16/9 sm:aspect-21/9 overflow-hidden bg-black border border-white/15 cursor-zoom-in group shadow-2xl w-full text-left"
           >
             <img
               src={currentImage}
@@ -176,7 +178,7 @@ export const ProjectDetailPage: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5" />
               <span>Expand Lightbox (Image {activeImageIndex + 1} of {allImages.length})</span>
             </div>
-          </div>
+          </button>
 
           {/* Thumbnails row */}
           {allImages.length > 1 && (
@@ -185,6 +187,9 @@ export const ProjectDetailPage: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
+                  type="button"
+                  aria-label={`Show image ${idx + 1}`}
+                  aria-pressed={activeImageIndex === idx}
                   className={`relative w-24 sm:w-32 aspect-16/10 overflow-hidden border transition-all cursor-pointer shrink-0 ${
                     activeImageIndex === idx
                       ? 'border-[#c5a880] ring-1 ring-[#c5a880]'
