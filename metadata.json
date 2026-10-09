@@ -2,5 +2,7 @@
   "name": "Dennis Bezalel | Architectural Design & Haute Living",
   "description": "Digital architectural design and luxury spatial portfolio of Dennis Ochieng (Dennis Bezalel). Bespoke grand estates, penthouses, and monumental interiors inspired by Ferris Rafauli.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

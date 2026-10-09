@@ -51,7 +51,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#08080a] text-[#eae7e1] font-sans selection:bg-[#c5a880] selection:text-black">
-      {/* Whisper-thin Minimalist Monograph Navigation with Ambient Sound Toggle */}
+      {/* Whisper-thin Minimalist Monograph Navigation & Menu */}
       <Navbar onOpenCommissionModal={handleOpenGeneralConversation} />
 
       {/* Monumental Architectural Entrance (Full-viewport, quiet, coordinates) */}

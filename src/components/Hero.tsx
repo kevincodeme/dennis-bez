@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Volume2, VolumeX, ArrowDown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowDown } from 'lucide-react';
 import { Project } from '../data/portfolioData';
-import { ambientSound } from '../utils/audio';
 
 interface HeroProps {
   projects: Project[];
@@ -15,7 +14,6 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreClick,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlayingSound, setIsPlayingSound] = useState(false);
   const [progress, setProgress] = useState(0);
 
   const heroProjects = projects.slice(0, 4);
@@ -49,11 +47,6 @@ export const Hero: React.FC<HeroProps> = ({
   const handleNext = () => {
     setProgress(0);
     setCurrentIndex((prev) => (prev + 1) % heroProjects.length);
-  };
-
-  const toggleSound = () => {
-    const active = ambientSound.toggle();
-    setIsPlayingSound(active);
   };
 
   return (
@@ -131,34 +124,8 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Interactive Navigation & Audio Controls */}
-          <div className="lg:col-span-4 flex flex-col lg:items-end justify-between gap-6 border-t lg:border-t-0 pt-4 lg:pt-0 border-white/10">
-            {/* Ambient Soundscape Toggle Simulator */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={toggleSound}
-                className="flex items-center gap-2 text-xs text-[#c8c5be] hover:text-white transition-colors border border-white/10 px-3 py-1.5 bg-black/40 backdrop-blur-sm cursor-pointer"
-                title="Toggle Ambient Architectural Acoustics"
-              >
-                {isPlayingSound ? (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-[#c5a880]" />
-                    <span className="tracking-[0.15em] text-[10px] uppercase">Atmosphere: Active</span>
-                    <div className="flex items-center gap-0.5 ml-1">
-                      <span className="w-0.5 h-2 bg-[#c5a880] animate-pulse" />
-                      <span className="w-0.5 h-3 bg-[#c5a880] animate-pulse delay-75" />
-                      <span className="w-0.5 h-1.5 bg-[#c5a880] animate-pulse delay-150" />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-[#9e9b94]" />
-                    <span className="tracking-[0.15em] text-[10px] uppercase text-[#9e9b94]">Atmosphere: Muted</span>
-                  </>
-                )}
-              </button>
-            </div>
-
+          {/* Right Column: Interactive Navigation Controls */}
+          <div className="lg:col-span-4 flex flex-col lg:items-end justify-end gap-6 border-t lg:border-t-0 pt-4 lg:pt-0 border-white/10">
             {/* Slide Index & Pagination */}
             <div className="flex items-center gap-4">
               <div className="font-serif text-lg tracking-wider text-white">
