@@ -3,112 +3,50 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ArchitectLetter } from './components/ArchitectLetter';
-import { MonographWorks } from './components/MonographWorks';
-import { OnSiteProcess } from './components/OnSiteProcess';
-import { MaterialityLab } from './components/MaterialityLab';
-import { InstagramFeed } from './components/InstagramFeed';
-import { CinematographySection } from './components/CinematographySection';
-import { Monograph } from './components/Monograph';
-import { HumanConversation } from './components/HumanConversation';
 import { Footer } from './components/Footer';
-import { ProjectModal } from './components/ProjectModal';
-import { PROJECTS, Project } from './data/portfolioData';
+import { ScrollToTop } from './components/ScrollToTop';
+
+import { HomePage } from './pages/HomePage';
+import { ResidencesPage } from './pages/ResidencesPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
+import { AtelierPage } from './pages/AtelierPage';
+import { MaterialityPage } from './pages/MaterialityPage';
+import { CinematographyPage } from './pages/CinematographyPage';
+import { ArchitectPage } from './pages/ArchitectPage';
+import { FieldDiaryPage } from './pages/FieldDiaryPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [conversationModalOpen, setConversationModalOpen] = useState(false);
-  const [conversationTargetProject, setConversationTargetProject] = useState<string>('');
-
-  const handleSelectProject = (project: Project) => {
-    setSelectedProject(project);
-  };
-
-  const handleCloseProjectModal = () => {
-    setSelectedProject(null);
-  };
-
-  const handleOpenConversationFromProject = (projectTitle: string) => {
-    setSelectedProject(null);
-    setConversationTargetProject(projectTitle);
-    setConversationModalOpen(true);
-  };
-
-  const handleOpenGeneralConversation = () => {
-    setConversationTargetProject('');
-    setConversationModalOpen(true);
-  };
-
-  const scrollToMonograph = () => {
-    const el = document.getElementById('portfolio');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[#08080a] text-[#eae7e1] font-sans selection:bg-[#c5a880] selection:text-black">
-      {/* Whisper-thin Minimalist Monograph Navigation & Menu */}
-      <Navbar onOpenCommissionModal={handleOpenGeneralConversation} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen bg-[#08080a] text-[#eae7e1] font-sans selection:bg-[#c5a880] selection:text-black flex flex-col justify-between">
+        {/* Persistent Luxury Top Bar with Page Links & Redesigned Menu */}
+        <Navbar />
 
-      {/* Monumental Architectural Entrance (Full-viewport, quiet, coordinates) */}
-      <Hero
-        projects={PROJECTS}
-        onSelectProject={handleSelectProject}
-        onExploreClick={scrollToMonograph}
-      />
+        {/* Multi-Page Routes */}
+        <main className="grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/residences" element={<ResidencesPage />} />
+            <Route path="/residences/:id" element={<ProjectDetailPage />} />
+            <Route path="/atelier" element={<AtelierPage />} />
+            <Route path="/materiality" element={<MaterialityPage />} />
+            <Route path="/film" element={<CinematographyPage />} />
+            <Route path="/cinematography" element={<Navigate to="/film" replace />} />
+            <Route path="/architect" element={<ArchitectPage />} />
+            <Route path="/field-diary" element={<FieldDiaryPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-      {/* A Personal Note from Dennis Ochieng (Authentic Human Voice & Studio Desk) */}
-      <ArchitectLetter />
-
-      {/* Selected Works: Monograph Spreads with Hand-Drafting Blueprint Trace Toggle */}
-      <MonographWorks
-        projects={PROJECTS}
-        onOpenProjectDossier={handleSelectProject}
-        onOpenCommission={handleOpenConversationFromProject}
-      />
-
-      {/* How We Build: From Dirt to Sanctuary (Raw craftsmanship on site) */}
-      <OnSiteProcess />
-
-      {/* The Materiality Archive (Quarried stone, patinated bronze & Belgian oak) */}
-      <MaterialityLab />
-
-      {/* Field Diary & Real Dispatches (@dennisbezalel Instagram & Reels) */}
-      <InstagramFeed />
-
-      {/* Architectural Motion & Archival Cinematography Reel */}
-      <CinematographySection />
-
-      {/* Dennis Ochieng (Bezalel) Monograph Profile & Heritage */}
-      <Monograph onOpenCommissionModal={handleOpenGeneralConversation} />
-
-      {/* Direct Personal Conversation (Discrete dialogue, WhatsApp direct & private letter) */}
-      <HumanConversation />
-
-      {/* Monolithic Atelier Footer */}
-      <Footer />
-
-      {/* Comprehensive Architectural Project Dossier Modal */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={handleCloseProjectModal}
-          onCommission={handleOpenConversationFromProject}
-        />
-      )}
-
-      {/* Floating Dialogue Dialog when triggered from header or project spread */}
-      {conversationModalOpen && (
-        <HumanConversation
-          isModal={true}
-          initialProjectTitle={conversationTargetProject}
-          onClose={() => setConversationModalOpen(false)}
-        />
-      )}
-    </div>
+        {/* Persistent Monolithic Atelier Footer */}
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

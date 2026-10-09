@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
-  onOpenCommissionModal: () => void;
+  onOpenCommissionModal?: () => void;
 }
 
 interface MenuItem {
@@ -14,19 +15,20 @@ interface MenuItem {
 }
 
 const MENU_ITEMS: MenuItem[] = [
-  { num: '01', label: 'Residences & Estates', href: '#portfolio' },
-  { num: '02', label: 'The Atelier Note', href: '#philosophy' },
-  { num: '03', label: 'The Building Process', href: '#process' },
-  { num: '04', label: 'Materiality Archive', href: '#materiality' },
-  { num: '05', label: 'Architectural Cinema', href: '#cinematography' },
-  { num: '06', label: 'The Architect', href: '#monograph' },
-  { num: '07', label: 'Field Diary (@dennisbezalel)', href: '#instagram-feed' },
-  { num: '08', label: 'Initiate Conversation', href: '#conversation', isAction: true },
+  { num: '01', label: 'The Residences & Estates', href: '/residences' },
+  { num: '02', label: 'The Atelier & Philosophy', href: '/atelier' },
+  { num: '03', label: 'Materiality Archive', href: '/materiality' },
+  { num: '04', label: 'Architectural Motion', href: '/film' },
+  { num: '05', label: 'The Architect (Monograph)', href: '/architect' },
+  { num: '06', label: 'Field Diary (@dennisbezalel)', href: '/field-diary' },
+  { num: '07', label: 'Initiate Private Dialogue', href: '/contact', isAction: true },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when menu is active and support ESC key
+  // Lock body scroll when menu is open and support ESC key
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -57,14 +59,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
 
   const handleMenuClick = (item: MenuItem) => {
     closeMenu();
-    if (item.isAction) {
-      onOpenCommissionModal();
-      return;
-    }
-    const target = document.querySelector(item.href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(item.href);
+  };
+
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
   };
 
   return (
@@ -77,57 +78,77 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between gap-8">
-          {/* Brand Monogram & Wordmark */}
-          <a
-            href="#"
+          {/* Brand Monogram & Wordmark (Returns to Home Page) */}
+          <Link
+            to="/"
             className="group flex items-center gap-3 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c5a880]"
           >
             <Logo size="sm" showText={true} />
-          </a>
+          </Link>
 
-          {/* Minimalist Desktop Navigation Links */}
+          {/* Dedicated Page Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8 text-[12px] tracking-[0.22em] uppercase font-sans font-medium text-[#c8c5be]">
-            <a
-              href="#portfolio"
-              className="hover:text-white transition-colors whitespace-nowrap shrink-0 hover:underline underline-offset-8 decoration-[#c5a880]"
+            <Link
+              to="/residences"
+              className={`transition-colors whitespace-nowrap shrink-0 hover:text-white ${
+                isActive('/residences')
+                  ? 'text-[#c5a880] underline underline-offset-8 decoration-[#c5a880]'
+                  : 'hover:underline underline-offset-8 decoration-[#c5a880]'
+              }`}
             >
-              Residences
-            </a>
-            <a
-              href="#philosophy"
-              className="hover:text-white transition-colors whitespace-nowrap shrink-0 hover:underline underline-offset-8 decoration-[#c5a880]"
+              The Residences
+            </Link>
+            <Link
+              to="/atelier"
+              className={`transition-colors whitespace-nowrap shrink-0 hover:text-white ${
+                isActive('/atelier')
+                  ? 'text-[#c5a880] underline underline-offset-8 decoration-[#c5a880]'
+                  : 'hover:underline underline-offset-8 decoration-[#c5a880]'
+              }`}
             >
               The Atelier
-            </a>
-            <a
-              href="#materiality"
-              className="hover:text-white transition-colors whitespace-nowrap shrink-0 hover:underline underline-offset-8 decoration-[#c5a880]"
+            </Link>
+            <Link
+              to="/materiality"
+              className={`transition-colors whitespace-nowrap shrink-0 hover:text-white ${
+                isActive('/materiality')
+                  ? 'text-[#c5a880] underline underline-offset-8 decoration-[#c5a880]'
+                  : 'hover:underline underline-offset-8 decoration-[#c5a880]'
+              }`}
             >
               Materiality
-            </a>
-            <a
-              href="#instagram-feed"
-              className="hover:text-white transition-colors whitespace-nowrap shrink-0 text-[#c5a880] hover:underline underline-offset-8 decoration-[#c5a880]"
+            </Link>
+            <Link
+              to="/field-diary"
+              className={`transition-colors whitespace-nowrap shrink-0 ${
+                isActive('/field-diary')
+                  ? 'text-[#c5a880] underline underline-offset-8 decoration-[#c5a880]'
+                  : 'text-[#c5a880] hover:text-white hover:underline underline-offset-8 decoration-[#c5a880]'
+              }`}
             >
               @dennisbezalel
-            </a>
-            <a
-              href="#monograph"
-              className="hover:text-white transition-colors whitespace-nowrap shrink-0 hover:underline underline-offset-8 decoration-[#c5a880]"
+            </Link>
+            <Link
+              to="/architect"
+              className={`transition-colors whitespace-nowrap shrink-0 hover:text-white ${
+                isActive('/architect')
+                  ? 'text-[#c5a880] underline underline-offset-8 decoration-[#c5a880]'
+                  : 'hover:underline underline-offset-8 decoration-[#c5a880]'
+              }`}
             >
               The Architect
-            </a>
+            </Link>
           </nav>
 
-          {/* Right Action Zone: Conversation CTA + Menu Trigger */}
+          {/* Right Action Zone: Conversation CTA + Full Menu Trigger */}
           <div className="flex items-center gap-3.5 shrink-0">
-            <button
-              onClick={onOpenCommissionModal}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-sans font-medium tracking-[0.18em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors rounded-none whitespace-nowrap shrink-0 cursor-pointer shadow-lg"
+            <Link
+              to="/contact"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-sans font-medium tracking-[0.18em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors rounded-none whitespace-nowrap shrink-0 shadow-lg cursor-pointer"
             >
               <span>A Conversation</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
 
             {/* Menu Trigger Button */}
             <button
@@ -147,7 +168,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
         <div className="fixed inset-0 z-50 bg-[#070709]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-12 lg:p-16 text-[#eae7e1] animate-in fade-in duration-300">
           {/* Top Bar: Brand Monogram + Clean Close Action */}
           <div className="flex items-center justify-between border-b border-white/10 pb-6 sm:pb-8">
-            <Logo size="md" showText={true} />
+            <Link to="/" onClick={closeMenu} className="focus:outline-none">
+              <Logo size="md" showText={true} />
+            </Link>
 
             <button
               onClick={closeMenu}
@@ -165,19 +188,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
           <div className="my-auto py-8 sm:py-12 max-w-4xl mx-auto w-full">
             <div className="text-center sm:text-left mb-6 sm:mb-8">
               <span className="text-[10px] sm:text-[11px] tracking-[0.35em] uppercase text-[#c5a880] font-sans font-medium">
-                Monograph Index
+                Atelier Directory
               </span>
             </div>
 
             <nav className="flex flex-col space-y-4 sm:space-y-6">
               {MENU_ITEMS.map((item) => (
-                <a
+                <div
                   key={item.num}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleMenuClick(item);
-                  }}
+                  onClick={() => handleMenuClick(item)}
                   className="group flex items-baseline gap-4 sm:gap-8 text-left transition-all duration-300 cursor-pointer"
                 >
                   <span className="text-xs sm:text-sm font-sans tracking-widest text-[#9e9b94] group-hover:text-[#c5a880] transition-colors shrink-0">
@@ -194,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                   >
                     {item.label}
                   </span>
-                </a>
+                </div>
               ))}
             </nav>
           </div>

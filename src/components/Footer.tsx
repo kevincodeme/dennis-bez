@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { ArrowUp, Instagram, Youtube, HardDrive } from 'lucide-react';
 
@@ -14,7 +15,9 @@ export const Footer: React.FC = () => {
           {/* Brand Mark Column */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <Logo size="md" showText={true} className="mb-6" />
+              <Link to="/">
+                <Logo size="md" showText={true} className="mb-6" />
+              </Link>
               <p className="text-xs text-[#9e9b94] font-light max-w-sm leading-relaxed mb-6">
                 Dennis Bezalel (Dennis Ochieng) Architectural Atelier. Master planning, monumental residences, penthouse sanctums, and high end spatial storytelling inspired by the uncompromising standards of Ferris Rafauli.
               </p>
@@ -22,7 +25,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-4 text-xs">
               <a
-                href="https://www.instagram.com/dennisbezalel/"
+                href="https://www.instagram.com/dennisbezalel/?__pwa=1"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-1.5 text-white/80 hover:text-[#c5a880] transition-colors"
@@ -56,48 +59,43 @@ export const Footer: React.FC = () => {
           {/* Navigation Links Column */}
           <div className="lg:col-span-3">
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#c5a880] font-medium block mb-4">
-              Atelier Chapters
+              Atelier Pages
             </span>
             <ul className="space-y-3 text-xs">
               <li>
-                <a href="#portfolio" className="text-[#c8c5be] hover:text-white transition-colors">
+                <Link to="/residences" className="text-[#c8c5be] hover:text-white transition-colors">
                   The Residences & Estates
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#philosophy" className="text-[#c8c5be] hover:text-white transition-colors">
-                  A Note from Dennis Ochieng
-                </a>
+                <Link to="/atelier" className="text-[#c8c5be] hover:text-white transition-colors">
+                  The Atelier & Philosophy
+                </Link>
               </li>
               <li>
-                <a href="#process" className="text-[#c8c5be] hover:text-white transition-colors">
-                  How We Build: The Process
-                </a>
+                <Link to="/materiality" className="text-[#c8c5be] hover:text-white transition-colors">
+                  Materiality & Stone Archive
+                </Link>
               </li>
               <li>
-                <a href="#materiality" className="text-[#c8c5be] hover:text-white transition-colors">
-                  Materiality & Stone Quarrying
-                </a>
-              </li>
-              <li>
-                <a href="#instagram-feed" className="text-[#c5a880] hover:text-white transition-colors">
-                  Field Diary (@dennisbezalel)
-                </a>
-              </li>
-              <li>
-                <a href="#cinematography" className="text-[#c8c5be] hover:text-white transition-colors">
+                <Link to="/film" className="text-[#c8c5be] hover:text-white transition-colors">
                   Architectural Cinematography
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#monograph" className="text-[#c8c5be] hover:text-white transition-colors">
-                  Dennis Bezalel Monograph
-                </a>
+                <Link to="/architect" className="text-[#c8c5be] hover:text-white transition-colors">
+                  The Architect (Monograph)
+                </Link>
               </li>
               <li>
-                <a href="#conversation" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors">
+                <Link to="/field-diary" className="text-[#c5a880] hover:text-white transition-colors">
+                  Field Diary (@dennisbezalel)
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors font-medium">
                   Start a Conversation
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
