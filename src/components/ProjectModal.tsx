@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2, MapPin, Calendar, Ruler, Layers, Sparkles, Sun, Moon } from 'lucide-react';
 import { Project } from '../data/portfolioData';
 
@@ -17,12 +17,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const [activeTab, setActiveTab] = useState<'overview' | 'spatial' | 'materials'>('overview');
   const [isNightMode, setIsNightMode] = useState(false);
 
+  // Close on ESC key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!project) return null;
 
   const currentImage = project.galleryImages[activeImageIndex] || project.heroImage;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6 bg-black/90 backdrop-blur-xl animate-in fade-in duration-300">
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6 bg-black/90 backdrop-blur-xl animate-in fade-in duration-300"
+    >
       <div className="relative w-full h-full md:max-w-6xl md:max-h-[92vh] bg-[#0e0e11] border border-white/10 flex flex-col overflow-hidden text-[#eae7e1]">
         {/* Top Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#121216] shrink-0">

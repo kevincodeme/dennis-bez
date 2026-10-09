@@ -147,14 +147,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
               <span className="text-[11px] tracking-[0.3em] uppercase text-[#c5a880] font-sans font-medium">
                 Architectural Index
               </span>
-              <ul className="flex flex-col gap-4 font-serif text-3xl sm:text-4xl">
+              <ul className="flex flex-col gap-4 font-serif text-2xl sm:text-3xl">
                 <li>
                   <a
                     href="#portfolio"
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block"
                   >
-                    01. Selected Works & Estates
+                    01. Selected Residences & Estates
                   </a>
                 </li>
                 <li>
@@ -163,7 +163,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block"
                   >
-                    02. The Atelier Philosophy
+                    02. A Note from Dennis Ochieng
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#process"
+                    onClick={closeMenu}
+                    className="hover:text-[#c5a880] transition-colors inline-block"
+                  >
+                    03. How We Build: From Dirt to Sanctuary
                   </a>
                 </li>
                 <li>
@@ -172,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block"
                   >
-                    03. Materiality & Craft
+                    04. The Materiality Archive
                   </a>
                 </li>
                 <li>
@@ -181,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block text-[#c5a880]"
                   >
-                    04. Instagram Dispatches (@dennisbezalel)
+                    05. Field Diary (@dennisbezalel)
                   </a>
                 </li>
                 <li>
@@ -190,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block"
                   >
-                    05. Architectural Cinematography
+                    06. Architectural Motion & Film
                   </a>
                 </li>
                 <li>
@@ -199,7 +208,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                     onClick={closeMenu}
                     className="hover:text-[#c5a880] transition-colors inline-block"
                   >
-                    06. Dennis Bezalel Monograph
+                    07. Dennis Bezalel Monograph
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#conversation"
+                    onClick={closeMenu}
+                    className="hover:text-[#c5a880] transition-colors inline-block text-white font-medium"
+                  >
+                    08. Have a Conversation
                   </a>
                 </li>
               </ul>

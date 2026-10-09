@@ -3,7 +3,7 @@ import { Compass, PenTool } from 'lucide-react';
 
 export const ArchitectLetter: React.FC = () => {
   return (
-    <section className="w-full py-28 sm:py-36 bg-[#0a0a0c] relative border-b border-white/10 overflow-hidden">
+    <section id="philosophy" className="w-full py-28 sm:py-36 bg-[#0a0a0c] relative border-b border-white/10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Authentic Photograph of Dennis at his desk */}

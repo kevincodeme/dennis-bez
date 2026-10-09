@@ -26,6 +26,8 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
         return true;
       });
 
+  const leadProject = filteredProjects[0] || projects[0];
+
   return (
     <section id="portfolio" className="w-full py-28 sm:py-36 bg-[#08080a] relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
@@ -49,7 +51,10 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
               {(['All', 'Estates', 'Interiors', 'Hospitality'] as const).map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setShowSketchTrace(false);
+                  }}
                   className={`px-3 py-1 text-xs font-sans tracking-widest uppercase transition-colors cursor-pointer ${
                     activeCategory === cat
                       ? 'text-[#c5a880] font-medium border-b border-[#c5a880] -mb-[9px]'
@@ -72,15 +77,15 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
           <div className="p-8 sm:p-12 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <div className="flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-[#c5a880] font-sans mb-2">
-                <span>Chapter 01 · Monumental Residence</span>
+                <span>Featured Masterwork · {leadProject.category}</span>
                 <span>/</span>
-                <span>Karen Forest, Nairobi</span>
+                <span>{leadProject.location}</span>
               </div>
               <h3
                 className="text-3xl sm:text-5xl font-serif text-white font-normal"
                 style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
               >
-                The Obsidian Manor
+                {leadProject.title}
               </h3>
             </div>
 
@@ -132,16 +137,19 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="relative w-full h-full animate-in fade-in duration-500">
+              <div
+                onClick={() => onOpenProjectDossier(leadProject)}
+                className="relative w-full h-full animate-in fade-in duration-500 cursor-pointer"
+              >
                 <img
-                  src="/src/assets/images/hero_obsidian_manor_estate_1791539357090.jpg"
-                  alt="The Obsidian Manor"
+                  src={leadProject.heroImage}
+                  alt={leadProject.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center scale-100 group-hover:scale-102 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-12 text-xs font-sans text-white/80">
-                  <span>Gross Built Area: 16,800 SQ. FT. · Dark Basalt & Heated Reflection Basin</span>
+                  <span>Gross Built Area: {leadProject.area} · {leadProject.location} · {leadProject.year}</span>
                 </div>
               </div>
             )}
@@ -151,7 +159,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
           <div className="p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#111115]">
             <div className="lg:col-span-8">
               <p className="font-serif text-xl sm:text-2xl text-[#f4f2ee] font-light leading-relaxed mb-4">
-                "We didn't want this home to look like an imported European villa that landed on an alien plot. We carved it directly into the topography using local dark volcanic stone and massive cantilevered steel plates, so from the tree canopy below, it looks like a natural rock outcropping that happened to have warm light glowing inside it."
+                "{leadProject.architecturalStatement}"
               </p>
               <div className="flex items-center gap-4 text-xs text-[#9e9b94] font-sans">
                 <span>Dennis Ochieng · Lead Architectural Designer</span>
@@ -162,13 +170,13 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
               <button
-                onClick={() => onOpenProjectDossier(projects[0])}
+                onClick={() => onOpenProjectDossier(leadProject)}
                 className="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-sans uppercase tracking-widest transition-colors cursor-pointer text-center"
               >
                 Inspect Complete Blueprints & Specs
               </button>
               <button
-                onClick={() => onOpenCommission('The Obsidian Manor')}
+                onClick={() => onOpenCommission(leadProject.title)}
                 className="px-6 py-3.5 bg-[#c5a880] hover:bg-[#dfc7a5] text-black text-xs font-sans uppercase tracking-widest font-medium transition-colors cursor-pointer text-center"
               >
                 Commission Similar Residence

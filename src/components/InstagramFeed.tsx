@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { INSTAGRAM_POSTS, INSTAGRAM_HIGHLIGHTS, InstagramPost } from '../data/instagramData';
 import { Instagram, Heart, MessageCircle, Eye, ExternalLink, X, MapPin, CheckCircle } from 'lucide-react';
 
 export const InstagramFeed: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
+
+  // Close modal on Escape
+  useEffect(() => {
+    if (!selectedPost) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedPost(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPost]);
 
   return (
     <section id="instagram-feed" className="w-full py-28 sm:py-36 bg-[#09090b] relative border-t border-white/10">
@@ -216,7 +228,12 @@ export const InstagramFeed: React.FC = () => {
 
       {/* Selected Post Lightbox Modal */}
       {selectedPost && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300">
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedPost(null);
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300"
+        >
           <div className="relative w-full max-w-4xl bg-[#101014] border border-white/15 flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
             {/* Modal Image */}
             <div className="md:w-3/5 bg-black relative flex items-center justify-center overflow-hidden">

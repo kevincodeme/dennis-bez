@@ -61,12 +61,17 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-xs">
               <li>
                 <a href="#portfolio" className="text-[#c8c5be] hover:text-white transition-colors">
-                  Selected Works & Estates
+                  The Residences & Estates
                 </a>
               </li>
               <li>
                 <a href="#philosophy" className="text-[#c8c5be] hover:text-white transition-colors">
-                  The Atelier Philosophy
+                  A Note from Dennis Ochieng
+                </a>
+              </li>
+              <li>
+                <a href="#process" className="text-[#c8c5be] hover:text-white transition-colors">
+                  How We Build: The Process
                 </a>
               </li>
               <li>
@@ -76,7 +81,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#instagram-feed" className="text-[#c5a880] hover:text-white transition-colors">
-                  Instagram Dispatches (@dennisbezalel)
+                  Field Diary (@dennisbezalel)
                 </a>
               </li>
               <li>
@@ -86,12 +91,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#monograph" className="text-[#c8c5be] hover:text-white transition-colors">
-                  Dennis Ochieng Monograph
+                  Dennis Bezalel Monograph
                 </a>
               </li>
               <li>
-                <a href="#commission" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors">
-                  Private Commission Protocol
+                <a href="#conversation" className="text-[#c8c5be] hover:text-[#c5a880] transition-colors">
+                  Start a Conversation
                 </a>
               </li>
             </ul>

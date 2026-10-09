@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, MessageSquare, Phone, Mail, MapPin } from 'lucide-react';
 
 interface HumanConversationProps {
@@ -20,6 +20,18 @@ export const HumanConversation: React.FC<HumanConversationProps> = ({
   );
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+
+  // Close on ESC key when modal
+  useEffect(() => {
+    if (!isModal || !onClose) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModal, onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -221,7 +233,12 @@ export const HumanConversation: React.FC<HumanConversationProps> = ({
 
   if (isModal) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300 overflow-y-auto">
+      <div
+        onClick={(e) => {
+          if (e.target === e.currentTarget && onClose) onClose();
+        }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/95 backdrop-blur-xl animate-in fade-in duration-300 overflow-y-auto"
+      >
         <div className="relative w-full max-w-4xl my-auto bg-[#0b0b0d] border border-white/15 p-6 sm:p-10 text-[#eae7e1] max-h-[95vh] overflow-y-auto">
           {onClose && (
             <button
@@ -239,7 +256,9 @@ export const HumanConversation: React.FC<HumanConversationProps> = ({
   }
 
   return (
-    <section id="conversation" className="w-full py-28 sm:py-36 bg-[#08080a] relative border-t border-white/10">
+    <section id="conversation" className="w-full py-28 sm:py-36 bg-[#08080a] relative border-t border-white/10 scroll-mt-12">
+      {/* Invisible anchor for backward-compatibility with #commission links */}
+      <div id="commission" className="sr-only" />
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         {content}
       </div>
