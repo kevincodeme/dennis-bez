@@ -22,7 +22,7 @@ import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <div className="min-h-screen bg-[#08080a] text-[#eae7e1] font-sans selection:bg-[#c5a880] selection:text-black flex flex-col justify-between">
         {/* Persistent Luxury Top Bar with Page Links & Redesigned Menu */}
