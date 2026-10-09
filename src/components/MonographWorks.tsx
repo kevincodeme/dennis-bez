@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Project } from '../data/portfolioData';
 import { ArrowUpRight, Eye } from 'lucide-react';
+import { RevealOnScroll } from './RevealOnScroll';
 
 interface MonographWorksProps {
   projects: Project[];
@@ -143,84 +144,89 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
             const isEven = idx % 2 === 0;
 
             return (
-              <div
+              <RevealOnScroll
                 key={project.id}
-                className="border-t border-white/10 pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+                delayMs={100}
+                direction="up"
               >
-                {/* Image Spread */}
-                <div className={`lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div
-                    onClick={() => onOpenProjectDossier(project)}
-                    className="relative w-full h-80 sm:h-[480px] bg-black border border-white/10 overflow-hidden group cursor-pointer"
-                  >
-                    <img
-                      src={project.heroImage}
-                      alt={project.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity" />
-
-                    <div className="absolute top-4 right-4 p-3 bg-black/60 border border-white/20 text-white group-hover:bg-[#c5a880] group-hover:text-black group-hover:border-[#c5a880] transition-colors">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
-
-                    <div className="absolute bottom-4 left-6 text-xs text-[#eae7e1]">
-                      <span className="text-[#c5a880] font-sans uppercase tracking-wider text-[11px] block">
-                        {project.location}
-                      </span>
-                      <span className="font-mono text-white/70">Photo archive · {project.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Editorial Story Spread */}
-                <div className={`lg:col-span-5 flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div>
-                    <span className="text-xs font-sans tracking-[0.3em] uppercase text-[#c5a880] font-medium block mb-2">
-                      Chapter 0{idx + 2} · {project.category}
-                    </span>
-                    <h3
-                      className="text-3xl sm:text-4xl font-serif text-white font-normal mb-3"
-                      style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
+                <div
+                  className="border-t border-white/10 pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+                >
+                  {/* Image Spread */}
+                  <div className={`lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div
+                      onClick={() => onOpenProjectDossier(project)}
+                      className="relative w-full h-80 sm:h-[480px] bg-black border border-white/10 overflow-hidden group cursor-pointer"
                     >
-                      {project.title}
-                    </h3>
+                      <img
+                        src={project.heroImage}
+                        alt={project.title}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity" />
 
-                    <p className="font-serif text-lg text-[#eae7e1] italic font-light mb-4 leading-relaxed">
-                      "{project.subtitle}"
-                    </p>
+                      <div className="absolute top-4 right-4 p-3 bg-black/60 border border-white/20 text-white group-hover:bg-[#c5a880] group-hover:text-black group-hover:border-[#c5a880] transition-colors">
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
 
-                    <p className="text-xs sm:text-sm text-[#9e9b94] font-sans font-light leading-relaxed mb-6">
-                      {project.architecturalStatement}
-                    </p>
-
-                    {/* Material callout */}
-                    <div className="border-t border-white/10 pt-4 mb-6">
-                      <span className="text-[10px] uppercase tracking-widest text-white/40 block mb-2 font-mono">
-                        Visible Details
-                      </span>
-                      <div className="flex flex-wrap gap-2 text-xs text-[#c8c5be]">
-                        {project.materials.map((m, mIdx) => (
-                          <span key={mIdx} className="border border-white/15 px-2.5 py-1 bg-[#121216]">
-                            {m}
-                          </span>
-                        ))}
+                      <div className="absolute bottom-4 left-6 text-xs text-[#eae7e1]">
+                        <span className="text-[#c5a880] font-sans uppercase tracking-wider text-[11px] block">
+                          {project.location}
+                        </span>
+                        <span className="font-mono text-white/70">Photo archive · {project.location}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                    <button
-                      onClick={() => onOpenProjectDossier(project)}
-                      className="text-xs uppercase tracking-widest text-[#c5a880] hover:text-white font-sans font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                      <span>Inspect Dossier & Floor Plans</span>
-                    </button>
+                  {/* Editorial Story Spread */}
+                  <div className={`lg:col-span-5 flex flex-col justify-between ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div>
+                      <span className="text-xs font-sans tracking-[0.3em] uppercase text-[#c5a880] font-medium block mb-2">
+                        Chapter 0{idx + 2} · {project.category}
+                      </span>
+                      <h3
+                        className="text-3xl sm:text-4xl font-serif text-white font-normal mb-3"
+                        style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
+                      >
+                        {project.title}
+                      </h3>
+
+                      <p className="font-serif text-lg text-[#eae7e1] italic font-light mb-4 leading-relaxed">
+                        "{project.subtitle}"
+                      </p>
+
+                      <p className="text-xs sm:text-sm text-[#9e9b94] font-sans font-light leading-relaxed mb-6">
+                        {project.architecturalStatement}
+                      </p>
+
+                      {/* Material callout */}
+                      <div className="border-t border-white/10 pt-4 mb-6">
+                        <span className="text-[10px] uppercase tracking-widest text-white/40 block mb-2 font-mono">
+                          Visible Details
+                        </span>
+                        <div className="flex flex-wrap gap-2 text-xs text-[#c8c5be]">
+                          {project.materials.map((m, mIdx) => (
+                            <span key={mIdx} className="border border-white/15 px-2.5 py-1 bg-[#121216]">
+                              {m}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                      <button
+                        onClick={() => onOpenProjectDossier(project)}
+                        className="text-xs uppercase tracking-widest text-[#c5a880] hover:text-white font-sans font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Inspect Dossier & Floor Plans</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             );
           })}
         </div>

@@ -1,8 +1,24 @@
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Layers, ShieldCheck, Sparkles, Compass } from 'lucide-react';
 import { Logo } from './Logo';
 
 export const AtelierPhilosophy: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) {
+      return;
+    }
+    e.preventDefault();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   const tenets = [
     {
       index: '01',
@@ -105,10 +121,16 @@ export const AtelierPhilosophy: React.FC = () => {
                 "True architectural luxury does not scream for attention; it commands presence through uncompromising scale, honest raw stones, and an absolute obsession with how daylight sculpts living space."
               </p>
             </div>
-            <div className="shrink-0 flex items-center gap-6 border-t md:border-t-0 md:border-l border-white/15 pt-6 md:pt-0 md:pl-8">
+            <Link
+              to="/"
+              onClick={handleLogoClick}
+              className="shrink-0 flex items-center gap-6 border-t md:border-t-0 md:border-l border-white/15 pt-6 md:pt-0 md:pl-8 group cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c5a880]"
+              title="Dennis Bezalel Architectural Atelier - Return to Homepage"
+              aria-label="Dennis Bezalel Architectural Atelier - Home"
+            >
               <Logo size="lg" showText={false} />
               <div className="flex flex-col">
-                <span className="font-serif text-base text-white uppercase tracking-wider">
+                <span className="font-serif text-base text-white group-hover:text-[#c5a880] transition-colors uppercase tracking-wider">
                   Dennis Ochieng
                 </span>
                 <span className="text-xs text-[#c5a880] font-sans">
@@ -118,7 +140,7 @@ export const AtelierPhilosophy: React.FC = () => {
                   B.A. Interior Design with IT · Maseno University
                 </span>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

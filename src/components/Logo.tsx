@@ -7,6 +7,7 @@ interface LogoProps {
   showText?: boolean;
   lightMode?: boolean;
   stacked?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const Logo: React.FC<LogoProps> = ({
@@ -15,6 +16,7 @@ export const Logo: React.FC<LogoProps> = ({
   showText = true,
   lightMode = false,
   stacked = false,
+  onClick,
 }) => {
   const iconDimensions = {
     xs: 'w-6 h-7',
@@ -48,7 +50,12 @@ export const Logo: React.FC<LogoProps> = ({
 
   if (stacked) {
     return (
-      <div className={`flex flex-col items-center text-center gap-3 select-none ${className}`}>
+      <div
+        onClick={onClick}
+        role={onClick ? 'button' : undefined}
+        tabIndex={onClick ? 0 : undefined}
+        className={`flex flex-col items-center text-center gap-3 select-none ${onClick ? 'cursor-pointer hover:opacity-95' : ''} ${className}`}
+      >
         {MonogramGlyph}
         {showText && (
           <div className="flex flex-col items-center">
@@ -68,7 +75,12 @@ export const Logo: React.FC<LogoProps> = ({
   }
 
   return (
-    <div className={`flex items-center gap-3.5 select-none ${className}`}>
+    <div
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      className={`flex items-center gap-3.5 select-none ${onClick ? 'cursor-pointer hover:opacity-95' : ''} ${className}`}
+    >
       {MonogramGlyph}
 
       {showText && (

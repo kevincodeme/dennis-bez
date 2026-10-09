@@ -1,9 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import { ArrowUp, Instagram, Youtube, HardDrive } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) {
+      return;
+    }
+    e.preventDefault();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,7 +31,13 @@ export const Footer: React.FC = () => {
           {/* Brand Mark Column */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <Link to="/">
+              <Link
+                to="/"
+                onClick={handleLogoClick}
+                className="inline-block cursor-pointer group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c5a880]"
+                aria-label="Dennis Bezalel Architectural Atelier - Home"
+                title="Dennis Bezalel Architectural Atelier - Return to Homepage"
+              >
                 <Logo size="md" showText={true} className="mb-6" />
               </Link>
               <p className="text-xs text-[#9e9b94] font-light max-w-sm leading-relaxed mb-6">

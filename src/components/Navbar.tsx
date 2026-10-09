@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
@@ -65,6 +65,24 @@ export const Navbar: React.FC<NavbarProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    // Permit default browser behavior for modifier clicks (e.g. Cmd/Ctrl + click for new tab)
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) {
+      return;
+    }
+    e.preventDefault();
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,28 +132,22 @@ export const Navbar: React.FC<NavbarProps> = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between gap-6">
-          {/* Brand Monogram & Wordmark */}
+          {/* Brand Monogram & Wordmark - Takes user smoothly to homepage */}
           <Link
             to="/"
-            className="group flex items-center gap-3 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c5a880]"
+            onClick={handleLogoClick}
+            className="group flex items-center gap-3 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c5a880] cursor-pointer"
+            aria-label="Dennis Bezalel Architectural Atelier - Home"
+            title="Dennis Bezalel Architectural Atelier - Return to Homepage"
           >
             <Logo size="sm" showText={true} />
           </Link>
 
-          {/* Right Action Zone: Conversation CTA + Menu Trigger */}
-          <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
-            <Link
-              to="/conversation"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 text-[10px] sm:text-xs font-sans font-medium tracking-[0.14em] sm:tracking-[0.18em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors whitespace-nowrap shrink-0 shadow-lg cursor-pointer"
-            >
-              <span>A Conversation</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-
-            {/* Menu Trigger Button */}
+          {/* Right Action Zone: Menu Trigger (Visible on mobile, tablet, and desktop) */}
+          <div className="flex items-center shrink-0">
             <button
               onClick={() => setMenuOpen(true)}
-              className="flex items-center gap-2.5 px-4 py-2.5 text-xs uppercase tracking-[0.22em] text-[#c8c5be] hover:text-white border border-white/15 hover:border-[#c5a880] transition-all cursor-pointer bg-black/40 backdrop-blur-sm group"
+              className="flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs uppercase tracking-[0.22em] text-[#c8c5be] hover:text-white border border-white/15 hover:border-[#c5a880] transition-all cursor-pointer bg-black/40 backdrop-blur-sm group"
               aria-label="Open Navigation Menu"
             >
               <Menu className="w-4 h-4 text-[#c5a880] group-hover:scale-110 transition-transform" />
@@ -148,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
       {/* 
         Full Architectural Menu Overlay:
         Scrollable (`overflow-y-auto`), serene, Ferris Rafauli-inspired design.
-        Includes sticky header with close button, active page indicators, and detailed footer.
+        Includes sticky header with close button, active page indicators, dedicated A Conversation CTA, and detailed footer.
       */}
       {menuOpen && (
         <div
@@ -157,26 +169,70 @@ export const Navbar: React.FC<NavbarProps> = () => {
           aria-modal="true"
           aria-label="Navigation Menu"
         >
-          {/* Sticky Top Header: Keeps Close Button & Brand always accessible during scrolling */}
-          <div className="sticky top-0 z-20 bg-[#070709]/95 backdrop-blur-md border-b border-white/10 px-6 sm:px-12 lg:px-16 py-5 sm:py-6 flex items-center justify-between">
-            <Link to="/" onClick={closeMenu} className="focus:outline-none">
+          {/* Sticky Top Header: Keeps Close Button, Conversation CTA & Brand always accessible during scrolling */}
+          <div className="sticky top-0 z-20 bg-[#070709]/95 backdrop-blur-md border-b border-white/10 px-6 sm:px-12 lg:px-16 py-4 sm:py-5 flex items-center justify-between">
+            <Link
+              to="/"
+              onClick={handleLogoClick}
+              className="focus:outline-none cursor-pointer group"
+              aria-label="Dennis Bezalel Architectural Atelier - Home"
+              title="Dennis Bezalel Architectural Atelier - Return to Homepage"
+            >
               <Logo size="md" showText={true} />
             </Link>
 
-            <button
-              onClick={closeMenu}
-              className="group flex items-center gap-3 px-4 py-2 border border-white/15 hover:border-[#c5a880] text-[#c8c5be] hover:text-white transition-all cursor-pointer bg-black/40"
-              aria-label="Close menu"
-            >
-              <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#9e9b94] group-hover:text-[#c5a880] transition-colors">
-                Close
-              </span>
-              <X className="w-4 h-4 text-[#c5a880] transition-transform group-hover:rotate-90 duration-300" />
-            </button>
+            <div className="flex items-center gap-3 sm:gap-4">
+              <Link
+                to="/conversation"
+                onClick={closeMenu}
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-sans font-medium tracking-[0.16em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-colors whitespace-nowrap cursor-pointer shadow-md"
+              >
+                <span>A Conversation</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+
+              <button
+                onClick={closeMenu}
+                className="group flex items-center gap-3 px-4 py-2 border border-white/15 hover:border-[#c5a880] text-[#c8c5be] hover:text-white transition-all cursor-pointer bg-black/40"
+                aria-label="Close menu"
+              >
+                <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-[#9e9b94] group-hover:text-[#c5a880] transition-colors">
+                  Close
+                </span>
+                <X className="w-4 h-4 text-[#c5a880] transition-transform group-hover:rotate-90 duration-300" />
+              </button>
+            </div>
           </div>
 
           {/* Scrollable Architectural Monograph Directory Body */}
-          <div className="flex-1 max-w-5xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-10 sm:py-16">
+          <div className="flex-1 max-w-5xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-8 sm:py-14">
+            {/* Dedicated A Conversation Banner in Menu */}
+            <div className="mb-10 p-6 sm:p-8 bg-[#101014] border border-[#c5a880]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-2xl">
+              <div>
+                <span className="text-[10px] sm:text-[11px] font-sans tracking-[0.3em] uppercase text-[#c5a880] font-medium block mb-1">
+                  Private Architectural Commissions
+                </span>
+                <h3
+                  className="text-xl sm:text-2xl font-serif text-white tracking-wide"
+                  style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', Georgia, serif" }}
+                >
+                  Direct Dialogue with Dennis Bezalel
+                </h3>
+                <p className="text-xs text-[#9e9b94] font-sans font-light mt-1 max-w-xl">
+                  Personal presence from first pencil trace to final handover. Inquire directly via verified WhatsApp channel or private dossier request.
+                </p>
+              </div>
+
+              <Link
+                to="/conversation"
+                onClick={closeMenu}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-sans font-medium tracking-[0.2em] uppercase text-black bg-[#c5a880] hover:bg-[#dfc7a5] transition-all whitespace-nowrap shrink-0 shadow-xl cursor-pointer"
+              >
+                <span>A Conversation</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8 sm:mb-12">
               <div className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 bg-[#c5a880] inline-block" />
@@ -193,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
               {/* Home portal entry */}
               <Link
                 to="/"
-                onClick={closeMenu}
+                onClick={handleLogoClick}
                 className="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 border-b border-white/5 pb-6 transition-all duration-300 cursor-pointer hover:border-white/20"
               >
                 <div className="flex items-baseline gap-4 sm:gap-8">
