@@ -72,9 +72,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'lesus-private-jet-bts',
-    title: 'In-Flight BTS: Lesus Private Jet',
+    title: 'In Flight BTS: Lesus Private Jet',
     caption:
-      'Behind the lens documenting the ultimate executive flight experience with Lesus Private Jet & Executive Concierge. Capturing high-altitude luxury hospitality in motion.',
+      'Behind the lens documenting the ultimate executive flight experience with Lesus Private Jet & Executive Concierge. Capturing high altitude luxury hospitality in motion.',
     date: 'DECEMBER 2025',
     location: 'Wilson VIP & International Airspace',
     image: dennisPrivateJetCabinFilming,
@@ -102,9 +102,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'bentley-suite',
-    title: 'Bentley-Inspired Bespoke Residence',
+    title: 'Bentley Inspired Bespoke Residence',
     caption:
-      'Unveiling the bespoke Bentley-inspired residence in collaboration with Fine Urban Co Interiors Ltd. Diamond-quilted saddle leather wall upholstery, grand double-height archways, and a monolithic bookmatched Nero Marquina fireplace hearth.',
+      'Unveiling the bespoke Bentley inspired residence in collaboration with Fine Urban Co Interiors Ltd. Diamond quilted saddle leather wall upholstery, grand double height archways, and a monolithic bookmatched Nero Marquina fireplace hearth.',
     date: 'OCTOBER 2025',
     location: 'Runda, Nairobi',
     image: instagramBentleyInspiredMansion,
@@ -118,7 +118,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: 'modern-farmhouse',
     title: 'The Modernist Highland Farmhouse',
     caption:
-      'Modernist farmhouse architecture capturing the expansive rolling hills of Tigoni. Vaulted timber rafter geometry framing natural daylight and bespoke Scandinavian-African low-slung interiors. 2.6M+ views on YouTube.',
+      'Modernist farmhouse architecture capturing the expansive rolling hills of Tigoni. Vaulted timber rafter geometry framing natural daylight and bespoke Scandinavian African low slung interiors. 2.6M+ views on YouTube.',
     date: 'SEPTEMBER 2025',
     location: 'Tigoni Highlands, Kenya',
     image: instagramModernFarmhouseWalkthrough,

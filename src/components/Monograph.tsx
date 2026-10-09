@@ -53,12 +53,12 @@ export const Monograph: React.FC<MonographProps> = ({ onOpenCommissionModal }) =
               </h2>
 
               <p className="font-serif text-xl text-[#c8c5be] italic leading-relaxed mb-6 font-light">
-                "Spatial design is a dialogue between human emotion and structural permanence. When raw stone, pure light, and bespoke millwork align, architecture ceases to be shelter—it becomes timeless art."
+                "Spatial design is a dialogue between human emotion and structural permanence. When raw stone, pure light, and bespoke millwork align, architecture ceases to be shelter. It becomes timeless art."
               </p>
 
               <div className="space-y-4 text-xs sm:text-sm text-[#9e9b94] font-sans font-light leading-relaxed mb-8">
                 <p>
-                  Trained with a Bachelor of Arts in Interior Design with IT from Maseno University, Dennis Ochieng combines deep spatial planning acumen, architectural drafting, and cutting-edge digital visualization. Over nine years of dedicated practice, he has shaped high-end private residences, luxury hospitality suites, and commercial landmarks across East Africa and the Middle East.
+                  Trained with a Bachelor of Arts in Interior Design with IT from Maseno University, Dennis Ochieng combines deep spatial planning acumen, architectural drafting, and cutting edge digital visualization. Over nine years of dedicated practice, he has shaped high end private residences, luxury hospitality suites, and commercial landmarks across East Africa and the Middle East.
                 </p>
                 <p>
                   As Founder and Creative Director of the Dennis Bezalel Brand and long-standing visual lead for Fine Urban Interiors Ltd, Dennis has directed architectural productions viewed by over 20 million design aficionados worldwide. His portfolio includes celebrated collaborations on projects for Heart of Europe in Dubai, De Alby Suites, Lesus Private Aviation, and Taj Dubai.

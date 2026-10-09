@@ -52,10 +52,10 @@ export const ArchitectLetter: React.FC = () => {
 
               <div className="space-y-5 text-sm sm:text-base text-[#c8c5be] font-sans font-light leading-relaxed">
                 <p>
-                  I didn’t get into spatial design and architecture to produce cookie-cutter renderings on a screen. When I was studying Interior Spatial Planning and Design Principles at Maseno University, I spent my nights obsessing over one simple truth: <em className="text-white font-normal">how does a space make a person feel when the world outside goes silent?</em>
+                  I didn’t get into spatial design and architecture to produce cookie cutter renderings on a screen. When I was studying Interior Spatial Planning and Design Principles at Maseno University, I spent my nights obsessing over one simple truth: <em className="text-white font-normal">how does a space make a person feel when the world outside goes silent?</em>
                 </p>
                 <p>
-                  Over the past nine years—from dusty red-dirt sites in Karen and Muthaiga alongside master builders at Fine Urban, to high-altitude penthouse terraces and coastal villas in Dubai—I have treated every home as an unrepeatable physical sculpture.
+                  Over the past nine years, from dusty red dirt sites in Karen and Muthaiga alongside master builders at Fine Urban, to high altitude penthouse terraces and coastal villas in Dubai, I have treated every home as an unrepeatable physical sculpture.
                 </p>
                 <p>
                   We don’t just draw lines. We stand in the dirt before sunrise to watch how the morning light falls across the ridge. We fly to the quarries to touch the marble before it is cut. And we build with the quiet conviction that a great house should stand for fifty, a hundred years, holding memories with absolute grace.

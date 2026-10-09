@@ -231,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommissionModal }) => {
                 <p className="text-sm text-[#9e9b94] leading-relaxed mb-4">
                   Nairobi Atelier: 01°17′S, 36°49′E<br />
                   Dubai Studio: 25°12′N, 55°16′E<br />
-                  Specializing in grand private residences, luxury hospitality, and ultra-prime spatial direction.
+                  Specializing in grand private residences, luxury hospitality, and ultra prime spatial direction.
                 </p>
                 <div className="flex flex-col gap-1 text-sm text-[#eae7e1]">
                   <a href="mailto:theageco@gmail.com" className="hover:text-[#c5a880] transition-colors">

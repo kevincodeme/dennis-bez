@@ -68,7 +68,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
             </div>
 
             <span className="text-xs text-[#9e9b94] font-mono hidden md:block">
-              Volume I–IV · 2017–2026
+              Volumes I to IV · 2017 to 2026
             </span>
           </div>
         </div>
@@ -133,7 +133,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
                     "Keep south elevation glazing open to ridge breezes. Cantilever master deck 4.2m over the reflection court."
                   </p>
                   <span className="text-[10px] text-[#9e9b94] font-sans block mt-2">
-                    — Dennis Ochieng, Scale 1:50 Studio Drawing
+                    Dennis Ochieng, Scale 1:50 Studio Drawing
                   </span>
                 </div>
               </div>

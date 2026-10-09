@@ -18,8 +18,8 @@ export const InquiryConcierge: React.FC<InquiryConciergeProps> = ({
     phone: '',
     typology: initialProjectTitle ? 'Custom Project' : 'Private Residential Estate',
     location: 'Nairobi, Kenya',
-    scope: '10,000 - 20,000 SQ. FT.',
-    timeline: 'Immediate Planning (1-3 Months)',
+    scope: '10,000 to 20,000 SQ. FT.',
+    timeline: 'Immediate Planning (1 to 3 Months)',
     message: initialProjectTitle ? `Inquiring about commissioning a bespoke residence inspired by ${initialProjectTitle}.` : '',
   });
 
@@ -105,7 +105,7 @@ export const InquiryConcierge: React.FC<InquiryConciergeProps> = ({
               CONFIDENTIALITY PROTOCOL
             </span>
             <p className="text-xs text-[#9e9b94] leading-relaxed">
-              All architectural disclosures, site cadastrals, and client identities are safeguarded under strict non-disclosure agreements prior to concept exploration.
+              All architectural disclosures, site cadastrals, and client identities are safeguarded under strict non disclosure agreements prior to concept exploration.
             </p>
           </div>
         </div>
@@ -229,8 +229,8 @@ export const InquiryConcierge: React.FC<InquiryConciergeProps> = ({
                     onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
                     className="w-full bg-[#0b0b0d] border border-white/15 px-4 py-3 text-xs text-white focus:outline-none focus:border-[#c5a880] transition-colors"
                   >
-                    <option value="5,000 - 10,000 SQ. FT.">5,000 - 10,000 SQ. FT.</option>
-                    <option value="10,000 - 20,000 SQ. FT.">10,000 - 20,000 SQ. FT.</option>
+                    <option value="5,000 to 10,000 SQ. FT.">5,000 to 10,000 SQ. FT.</option>
+                    <option value="10,000 to 20,000 SQ. FT.">10,000 to 20,000 SQ. FT.</option>
                     <option value="20,000+ SQ. FT. (Monumental Estate)">20,000+ SQ. FT. (Monumental Estate)</option>
                     <option value="Boutique Commercial / Aviation">Boutique Commercial / Aviation</option>
                   </select>

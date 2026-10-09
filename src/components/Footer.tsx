@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             <div>
               <Logo size="md" showText={true} className="mb-6" />
               <p className="text-xs text-[#9e9b94] font-light max-w-sm leading-relaxed mb-6">
-                Dennis Bezalel (Dennis Ochieng) Architectural Atelier. Master planning, monumental residences, penthouse sanctums, and high-end spatial storytelling inspired by the uncompromising standards of Ferris Rafauli.
+                Dennis Bezalel (Dennis Ochieng) Architectural Atelier. Master planning, monumental residences, penthouse sanctums, and high end spatial storytelling inspired by the uncompromising standards of Ferris Rafauli.
               </p>
             </div>
 
