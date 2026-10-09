@@ -1,4 +1,5 @@
 import React from 'react';
+import monogramImage from '../assets/dennis-bezalel-mark.png';
 
 interface LogoProps {
   className?: string;
@@ -33,61 +34,33 @@ export const Logo: React.FC<LogoProps> = ({
     hero: 'text-3xl tracking-[0.45em]',
   }[size];
 
-  const primaryFill = lightMode ? '#0b0b0d' : '#ffffff';
-  const diamondFill = lightMode ? '#8c7150' : '#c5a880';
-
   const MonogramGlyph = (
-    <svg
-      viewBox="0 0 500 500"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={`${iconDimensions} shrink-0 transition-transform duration-500 group-hover:scale-105`}
-      aria-label="Dennis Bezalel Monogram"
+    <span
+      className={`${iconDimensions} inline-flex shrink-0 items-center justify-center overflow-hidden rounded-sm bg-[#eae7e1] p-0.5 transition-transform duration-500 group-hover:scale-105`}
     >
-      {/* Upper Ascender & Hook of 'd' */}
-      <path
-        d="M260 90 C260 90, 282 90, 302 70 C312 60, 312 40, 312 20 L260 20 L260 270 C236 270, 220 260, 200 234 C178 202, 178 154, 200 122 C220 90, 244 90, 260 90 Z"
-        fill={primaryFill}
+      <img
+        src={monogramImage}
+        alt="Dennis Bezalel monogram"
+        className="h-full w-full object-contain"
       />
-
-      {/* Main Column of 'd' */}
-      <path
-        d="M232 174 L282 174 L282 382 L232 382 Z"
-        fill={primaryFill}
-      />
-
-      {/* Left Crescent Outer Bowl of 'd' */}
-      <path
-        d="M232 208 C200 208, 164 234, 164 286 C164 338, 200 368, 232 368 L232 336 C216 336, 200 324, 200 286 C200 254, 216 240, 232 240 Z"
-        fill={primaryFill}
-      />
-
-      {/* Descending & Sweeping Loop of 'b' */}
-      <path
-        d="M260 294 L260 386 C260 424, 280 456, 318 462 C354 468, 382 446, 382 404 C382 356, 344 336, 306 336 L306 302 C366 302, 420 340, 420 410 C420 474, 360 512, 290 502 C242 492, 216 444, 216 386 L216 294 Z"
-        fill={primaryFill}
-      />
-
-      {/* Center Solid Diamond inside Loop of 'b' */}
-      <polygon points="318,378 340,400 318,422 296,400" fill={diamondFill} />
-    </svg>
+    </span>
   );
 
   if (stacked) {
     return (
-      <div className={`flex flex-col items-center text-center gap-4 select-none ${className}`}>
+      <div className={`flex flex-col items-center rounded-sm bg-[#eae7e1] p-2 text-center gap-4 select-none ${className}`}>
         {MonogramGlyph}
         {showText && (
           <div className="flex flex-col items-center">
             <span
               className={`font-serif uppercase font-semibold tracking-[0.35em] whitespace-nowrap ${textClasses} ${
-                lightMode ? 'text-black' : 'text-white'
+                lightMode ? 'text-black' : 'text-[#171717]'
               }`}
               style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', serif" }}
             >
               DENNIS <span className="text-[#c5a880] mx-0.5">•</span> BEZALEL
             </span>
-            <span className="text-[9px] tracking-[0.38em] uppercase text-[#9e9b94] font-sans font-medium mt-1">
+            <span className="text-[9px] tracking-[0.38em] uppercase text-[#55514b] font-sans font-medium mt-1">
               ARCHITECTURAL ATELIER
             </span>
           </div>
@@ -97,20 +70,20 @@ export const Logo: React.FC<LogoProps> = ({
   }
 
   return (
-    <div className={`flex items-center gap-3.5 select-none ${className}`}>
+    <div className={`flex items-center gap-3.5 rounded-sm bg-[#eae7e1] px-2 py-1.5 select-none ${className}`}>
       {MonogramGlyph}
 
       {showText && (
         <div className="flex flex-col">
           <span
             className={`font-serif uppercase font-semibold whitespace-nowrap ${textClasses} ${
-              lightMode ? 'text-black' : 'text-white/95'
+              lightMode ? 'text-black' : 'text-[#171717]'
             }`}
             style={{ fontFamily: "'Cinzel', 'Cormorant Garamond', serif" }}
           >
             DENNIS <span className="text-[#c5a880] mx-0.5">•</span> BEZALEL
           </span>
-          <span className="text-[9px] tracking-[0.35em] text-[#9e9b94] uppercase font-sans font-medium whitespace-nowrap">
+          <span className="text-[9px] tracking-[0.35em] text-[#55514b] uppercase font-sans font-medium whitespace-nowrap">
             ARCHITECTURAL ATELIER
           </span>
         </div>
@@ -118,4 +91,3 @@ export const Logo: React.FC<LogoProps> = ({
     </div>
   );
 };
-
