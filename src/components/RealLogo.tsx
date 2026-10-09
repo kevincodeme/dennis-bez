@@ -11,20 +11,20 @@ export const RealLogo: React.FC<RealLogoProps> = ({
   className = '',
   size = 'md',
   variant = 'full',
-  color = 'light',
+  color = 'bronze',
 }) => {
   // Determine fill colors
   const primaryFill = {
-    light: '#eae7e1', // Warm alabaster on dark
-    white: '#ffffff',
-    dark: '#0c0c0e',  // Dark charcoal on light
-    bronze: '#c5a880', // Signature Ferris Rafauli bronze
+    light: '#c5a880',
+    white: '#dfc7a5',
+    dark: '#c5a880',
+    bronze: '#c5a880',
   }[color];
 
   const accentFill = {
-    light: '#c5a880',
-    white: '#dfc7a5',
-    dark: '#8c7150',
+    light: '#dfc7a5',
+    white: '#f3e7c4',
+    dark: '#dfc7a5',
     bronze: '#dfc7a5',
   }[color];
 
