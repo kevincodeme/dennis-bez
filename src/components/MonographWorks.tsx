@@ -118,7 +118,7 @@ export const MonographWorks: React.FC<MonographWorksProps> = ({
               <div className="relative w-full h-full animate-in fade-in duration-500">
                 <img
                   src={architecturalHandSketchTrace}
-                  alt="Dennis's hand-drafted concept sketch on yellow tracing paper"
+                  alt="Dennis's hand drawn concept sketch on yellow tracing paper"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center"
                 />

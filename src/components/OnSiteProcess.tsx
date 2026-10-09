@@ -24,9 +24,9 @@ export const OnSiteProcess: React.FC = () => {
     {
       num: '03',
       title: 'Site Boots & Formwork Precision',
-      subtitle: 'Hands-On Jobsite Oversight',
+      subtitle: 'Hands On Jobsite Oversight',
       description:
-        'From the first excavator breaking ground in Karen or Runda to the final coat of wax on patinated bronze handrails, Dennis is physically on site. Working shoulder-to-shoulder with lead engineers and masons ensures zero compromise.',
+        'From the first excavator breaking ground in Karen or Runda to the final coat of wax on patinated bronze handrails, Dennis is physically on site. Working alongside lead engineers and masons ensures zero compromise.',
       quote: '"Great architecture is won in the mud and dust of the construction site."',
       icon: HardHat,
     },
@@ -35,7 +35,7 @@ export const OnSiteProcess: React.FC = () => {
       title: 'Cinematic Spatial Archival',
       subtitle: 'Preserving The Legacy',
       description:
-        'Using cinema-grade 4K cameras, anamorphic glass, and precision aerial drones, Dennis documents the transformation from bare topography to living sanctuary. The client receives a museum-grade archival film documenting their family estate.',
+        'Using professional 4K cameras, anamorphic glass, and precision aerial drones, Dennis documents the transformation from bare topography to living sanctuary. The client receives an archival film of museum quality documenting their family estate.',
       quote: '"A legacy home deserves a cinematic record that future generations can cherish."',
       icon: Video,
     },

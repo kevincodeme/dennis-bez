@@ -24,7 +24,7 @@ export const MaterialityLab: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#9e9b94] font-sans font-light max-w-md leading-relaxed">
-            Every architectural residence is defined by noble earth-born elements. We collaborate directly with historic stone quarries in Tuscany, timber mills in Belgium, and metal ateliers in Milan.
+            Every architectural residence is defined by noble natural materials. We collaborate directly with historic stone quarries in Tuscany, timber mills in Belgium, and metal ateliers in Milan.
           </p>
         </div>
 
